@@ -82,7 +82,7 @@ const Footer = () => {
               {/* Services */}
               <div>
                 <h4 className="font-semibold text-lg mb-4">{t("nav.services")}</h4>
-                <ul className="space-y-2 text-sm text-white/80">
+                <ul className="space-y-2 text-base text-white/80">
                   {services.map((s) => (
                     <li key={s.anchor}>
                       <Link to={`/services${s.anchor}`} className="hover:text-secondary transition-colors">
