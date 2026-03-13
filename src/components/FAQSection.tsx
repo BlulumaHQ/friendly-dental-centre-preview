@@ -6,7 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import clinicExterior from "@/assets/clinic-exterior.jpg";
+import faqImage from "@/assets/faq-clinic.jpg";
 
 const faqKeys = [
   { q: "faq.q1", a: "faq.a1" },
@@ -40,7 +40,7 @@ const FAQSection = () => {
           >
             <div className="rounded-2xl overflow-hidden shadow-lg">
               <img
-                src={clinicExterior}
+                src={faqImage}
                 alt="Friendly Dental Centre"
                 className="w-full h-[400px] object-cover"
               />
@@ -53,7 +53,7 @@ const FAQSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <Accordion type="single" collapsible className="space-y-3">
+            <Accordion type="single" collapsible defaultValue="faq-0" className="space-y-3">
               {faqKeys.map((faq, i) => (
                 <AccordionItem key={i} value={`faq-${i}`} className="border border-border rounded-lg px-5 bg-background">
                   <AccordionTrigger className="text-foreground font-semibold text-left hover:no-underline">
