@@ -67,6 +67,7 @@ const Footer = () => {
 
           {/* Right block */}
           <div className="shrink-0">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 lg:gap-14">
               {/* Links */}
               <div>
                 <h4 className="font-semibold text-lg mb-4">{t("footer.links")}</h4>
@@ -123,9 +124,9 @@ const Footer = () => {
                   </li>
                 </ul>
               </div>
+            </div>
           </div>
         </div>
-      </div>
       </div>
 
       {/* Bottom bar */}
