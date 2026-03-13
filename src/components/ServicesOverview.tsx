@@ -50,10 +50,10 @@ const ServicesOverview = () => {
                 <div className="w-20 h-20 mb-4 shrink-0">
                   <img src={s.icon} alt={t(`service.${s.key}`)} className="w-full h-full" />
                 </div>
-                <h3 className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors mb-1">
+                <h3 className="text-base font-semibold text-foreground group-hover:text-primary transition-colors mb-1">
                   {t(`service.${s.key}`)}
                 </h3>
-                <p className="text-xs text-muted-foreground leading-snug">
+                <p className="text-sm text-muted-foreground leading-snug">
                   {t(`service.${s.key}.short`)}
                 </p>
               </Link>

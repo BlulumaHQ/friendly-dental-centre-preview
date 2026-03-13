@@ -56,10 +56,10 @@ const FAQSection = () => {
             <Accordion type="single" collapsible defaultValue="faq-0" className="space-y-3">
               {faqKeys.map((faq, i) => (
                 <AccordionItem key={i} value={`faq-${i}`} className="border border-border rounded-lg px-5 bg-background">
-                  <AccordionTrigger className="text-foreground font-semibold text-left hover:no-underline">
+                  <AccordionTrigger className="text-foreground font-semibold text-base text-left hover:no-underline">
                     {t(faq.q)}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground leading-relaxed">
+                  <AccordionContent className="text-muted-foreground leading-relaxed text-base">
                     {t(faq.a)}
                   </AccordionContent>
                 </AccordionItem>

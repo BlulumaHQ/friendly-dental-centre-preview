@@ -20,7 +20,7 @@ const WhyTrustSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="text-muted-foreground leading-relaxed text-base"
+          className="text-muted-foreground leading-relaxed text-lg"
         >
           {t("trust.desc")}
         </motion.p>

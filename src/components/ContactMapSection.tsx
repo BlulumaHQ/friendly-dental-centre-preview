@@ -148,31 +148,31 @@ const ContactMapSection = () => {
                 <div className="flex items-start gap-3">
                   <MapPin className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-semibold text-sm text-foreground">Address</p>
-                    <p className="text-muted-foreground text-sm">{t("contact.address")}</p>
+                    <p className="font-semibold text-base text-foreground">Address</p>
+                    <p className="text-muted-foreground text-base">{t("contact.address")}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <Phone className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-semibold text-sm text-foreground">Phone</p>
-                    <a href="tel:6042738315" className="text-muted-foreground text-sm hover:text-primary transition-colors">604-273-8315</a>
+                    <p className="font-semibold text-base text-foreground">Phone</p>
+                    <a href="tel:6042738315" className="text-muted-foreground text-base hover:text-primary transition-colors">604-273-8315</a>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <Mail className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-semibold text-sm text-foreground">Email</p>
-                    <a href="mailto:info@friendlydental.ca" className="text-muted-foreground text-sm hover:text-primary transition-colors">info@friendlydental.ca</a>
+                    <p className="font-semibold text-base text-foreground">Email</p>
+                    <a href="mailto:info@friendlydental.ca" className="text-muted-foreground text-base hover:text-primary transition-colors">info@friendlydental.ca</a>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <Clock className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-semibold text-sm text-foreground">{t("contact.hours")}</p>
-                    <p className="text-muted-foreground text-xs">{t("contact.monFri")}</p>
-                    <p className="text-muted-foreground text-xs">{t("contact.sat")}</p>
-                    <p className="text-muted-foreground text-xs">{t("contact.sun")}</p>
+                    <p className="font-semibold text-base text-foreground">{t("contact.hours")}</p>
+                    <p className="text-muted-foreground text-base">{t("contact.monFri")}</p>
+                    <p className="text-muted-foreground text-base">{t("contact.sat")}</p>
+                    <p className="text-muted-foreground text-base">{t("contact.sun")}</p>
                   </div>
                 </div>
               </div>
