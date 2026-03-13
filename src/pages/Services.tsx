@@ -6,18 +6,20 @@ import Footer from "@/components/Footer";
 import StickyBookNow from "@/components/StickyBookNow";
 import { useLanguage } from "@/contexts/LanguageContext";
 import heroBg from "@/assets/hero-bg.jpg";
-import clinicInterior1 from "@/assets/clinic-interior-1.png";
-import clinicInterior2 from "@/assets/clinic-interior-2.png";
-import clinicInterior3 from "@/assets/clinic-interior-3.png";
-import aboutClinic from "@/assets/about-clinic.jpg";
+import serviceImplants from "@/assets/service-implants.jpg";
+import serviceOrthodontics from "@/assets/service-orthodontics.jpg";
+import servicePediatric from "@/assets/service-pediatric.jpg";
+import serviceMaintenance from "@/assets/service-maintenance.jpg";
+import serviceRestoratives from "@/assets/service-restoratives.jpg";
+import serviceEsthetics from "@/assets/service-esthetics.jpg";
 
 const serviceData = [
-  { id: "implants", key: "implants", image: clinicInterior1 },
-  { id: "orthodontics", key: "orthodontics", image: clinicInterior2 },
-  { id: "pediatric", key: "pediatric", image: clinicInterior3 },
-  { id: "maintenance", key: "maintenance", image: aboutClinic },
-  { id: "restoratives", key: "restoratives", image: clinicInterior1 },
-  { id: "esthetics", key: "esthetics", image: clinicInterior2 },
+  { id: "implants", key: "implants", image: serviceImplants },
+  { id: "orthodontics", key: "orthodontics", image: serviceOrthodontics },
+  { id: "pediatric", key: "pediatric", image: servicePediatric },
+  { id: "maintenance", key: "maintenance", image: serviceMaintenance },
+  { id: "restoratives", key: "restoratives", image: serviceRestoratives },
+  { id: "esthetics", key: "esthetics", image: serviceEsthetics },
 ];
 
 const Services = () => {

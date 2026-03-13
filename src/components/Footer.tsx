@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Phone, MapPin, Mail, Clock } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import footerLogo from "@/assets/footer-logo.svg";
@@ -6,6 +6,29 @@ import drwuLogo from "@/assets/drwu-logo.png";
 
 const Footer = () => {
   const { lang, t } = useLanguage();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const scrollToSection = (sectionId: string) => {
+    if (location.pathname === "/") {
+      const el = document.getElementById(sectionId);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/");
+      setTimeout(() => {
+        const el = document.getElementById(sectionId);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 300);
+    }
+  };
+
+  const handleHomeClick = () => {
+    if (location.pathname === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      navigate("/");
+    }
+  };
 
   const services = [
     { name: "service.implants", anchor: "#implants" },
@@ -14,6 +37,14 @@ const Footer = () => {
     { name: "service.maintenance", anchor: "#maintenance" },
     { name: "service.restoratives", anchor: "#restoratives" },
     { name: "service.esthetics", anchor: "#esthetics" },
+  ];
+
+  const navItems = [
+    { label: "nav.home", action: handleHomeClick },
+    { label: "nav.ourOffice", action: () => scrollToSection("welcome-section") },
+    { label: "nav.ourTeam", action: () => scrollToSection("our-team") },
+    { label: "nav.services", action: () => navigate("/services") },
+    { label: "nav.contact", action: () => scrollToSection("contact-form") },
   ];
 
   return (
@@ -35,9 +66,13 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-lg mb-4">{t("footer.links")}</h4>
             <ul className="space-y-2 text-sm text-white/80">
-              <li><Link to="/" className="hover:text-secondary transition-colors">{t("nav.home")}</Link></li>
-              <li><Link to="/about" className="hover:text-secondary transition-colors">{t("nav.about")}</Link></li>
-              <li><Link to="/services" className="hover:text-secondary transition-colors">{t("nav.services")}</Link></li>
+              {navItems.map((item) => (
+                <li key={item.label}>
+                  <button onClick={item.action} className="hover:text-secondary transition-colors">
+                    {t(item.label)}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
 

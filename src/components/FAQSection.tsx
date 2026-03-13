@@ -6,6 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import clinicExterior from "@/assets/clinic-exterior.jpg";
 
 const faqKeys = [
   { q: "faq.q1", a: "faq.a1" },
@@ -20,7 +21,7 @@ const FAQSection = () => {
 
   return (
     <section className="py-20 bg-section-light">
-      <div className="container mx-auto px-4 max-w-3xl">
+      <div className="container mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -30,26 +31,42 @@ const FAQSection = () => {
           {t("faq.title")}
         </motion.h2>
 
-        <Accordion type="single" collapsible className="space-y-3">
-          {faqKeys.map((faq, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
-            >
-              <AccordionItem value={`faq-${i}`} className="border border-border rounded-lg px-5 bg-background">
-                <AccordionTrigger className="text-foreground font-semibold text-left hover:no-underline">
-                  {t(faq.q)}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground leading-relaxed">
-                  {t(faq.a)}
-                </AccordionContent>
-              </AccordionItem>
-            </motion.div>
-          ))}
-        </Accordion>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          {/* Image */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
+            <div className="rounded-2xl overflow-hidden shadow-lg">
+              <img
+                src={clinicExterior}
+                alt="Friendly Dental Centre"
+                className="w-full h-[400px] object-cover"
+              />
+            </div>
+          </motion.div>
+
+          {/* Accordion */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
+            <Accordion type="single" collapsible className="space-y-3">
+              {faqKeys.map((faq, i) => (
+                <AccordionItem key={i} value={`faq-${i}`} className="border border-border rounded-lg px-5 bg-background">
+                  <AccordionTrigger className="text-foreground font-semibold text-left hover:no-underline">
+                    {t(faq.q)}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground leading-relaxed">
+                    {t(faq.a)}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
