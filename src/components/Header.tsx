@@ -10,28 +10,37 @@ const Header = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const navItems = [
-    { path: "/", label: "nav.home" },
-    { path: "/about", label: "nav.about" },
-    { path: "/services", label: "nav.services" },
-  ];
-
-  const isActive = (path: string) => location.pathname === path;
-
-  const handleContactClick = (e?: React.MouseEvent) => {
-    e?.preventDefault();
+  const scrollToSection = (sectionId: string) => {
     setMobileOpen(false);
     if (location.pathname === "/") {
-      const el = document.getElementById("contact-form");
+      const el = document.getElementById(sectionId);
       if (el) el.scrollIntoView({ behavior: "smooth" });
     } else {
       navigate("/");
       setTimeout(() => {
-        const el = document.getElementById("contact-form");
+        const el = document.getElementById(sectionId);
         if (el) el.scrollIntoView({ behavior: "smooth" });
       }, 300);
     }
   };
+
+  const handleHomeClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setMobileOpen(false);
+    if (location.pathname === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      navigate("/");
+    }
+  };
+
+  const navItems = [
+    { label: "nav.home", action: handleHomeClick },
+    { label: "nav.ourOffice", action: () => scrollToSection("welcome-section") },
+    { label: "nav.ourTeam", action: () => scrollToSection("our-team") },
+    { label: "nav.services", action: () => { setMobileOpen(false); navigate("/services"); } },
+    { label: "nav.contact", action: () => scrollToSection("contact-form") },
+  ];
 
   return (
     <>
@@ -69,22 +78,14 @@ const Header = () => {
           {/* Desktop nav */}
           <nav className="hidden lg:flex items-center gap-8">
             {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  isActive(item.path) ? "text-primary border-b-2 border-primary pb-1" : "text-foreground"
-                }`}
+              <button
+                key={item.label}
+                onClick={item.action}
+                className="text-sm font-medium transition-colors hover:text-primary text-foreground"
               >
                 {t(item.label)}
-              </Link>
+              </button>
             ))}
-            <button
-              onClick={handleContactClick}
-              className="text-sm font-medium transition-colors hover:text-primary text-foreground"
-            >
-              {t("nav.contact")}
-            </button>
           </nav>
 
           {/* Mobile toggle */}
@@ -98,21 +99,14 @@ const Header = () => {
           <div className="lg:hidden bg-background border-t border-border">
             <nav className="container mx-auto px-4 py-4 flex flex-col gap-3">
               {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  onClick={() => setMobileOpen(false)}
-                  className={`py-2 text-sm font-medium ${isActive(item.path) ? "text-primary" : "text-foreground"}`}
+                <button
+                  key={item.label}
+                  onClick={item.action}
+                  className="py-2 text-sm font-medium text-foreground text-left"
                 >
                   {t(item.label)}
-                </Link>
+                </button>
               ))}
-              <button
-                onClick={handleContactClick}
-                className="py-2 text-sm font-medium text-foreground text-left"
-              >
-                {t("nav.contact")}
-              </button>
             </nav>
           </div>
         )}

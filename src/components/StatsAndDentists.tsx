@@ -15,7 +15,7 @@ const dentists = [
       "Clinical Assistant Professor, University of British Columbia",
       "Associate Fellow, American Association of Implant Dentistry",
     ],
-    bio: "Dr. Patrick Wu graduated with honours from the University of Pennsylvania School of Dental Medicine. After practicing dentistry in New Jersey for four years, he returned to Vancouver in 2012. Dr. Wu provides comprehensive care for patients of all ages, with special interests in implant dentistry, orthodontics, pediatric care, and complex restorative treatments.",
+    bioKey: "dentist.wu.bio",
   },
   {
     name: "Dr. Mike Pan",
@@ -26,7 +26,7 @@ const dentists = [
       "National Dental Examining Board of Canada, 2015",
       "Extensive experience in orthodontics and implant dentistry",
     ],
-    bio: "Dr. Mike Pan is known for his strong clinical skills and thoughtful approach to dental treatment. His areas of expertise include orthodontics, dental implants, wisdom teeth removal, and comprehensive dental care. Outside of dentistry, Dr. Pan enjoys golfing, skiing, woodworking, and music.",
+    bioKey: "dentist.pan.bio",
   },
   {
     name: "Dr. Ivy Lin",
@@ -37,7 +37,7 @@ const dentists = [
       "National Dental Examining Board of Canada, 2015",
       "Experienced in restorative and family dentistry",
     ],
-    bio: "Dr. Ivy Lin is known for her gentle and patient-centered approach to dentistry. She provides comprehensive care for patients of all ages and has particular strength in restorative dentistry. Dr. Lin focuses on creating a comfortable and relaxing experience while delivering high-quality dental treatment.",
+    bioKey: "dentist.lin.bio",
   },
   {
     name: "Dr. Jie Chen",
@@ -48,7 +48,7 @@ const dentists = [
       "Master's Degree in Prosthodontics",
       "National Dental Examining Board of Canada, 2022",
     ],
-    bio: "Dr. Jie Chen is an experienced prosthodontist specializing in cosmetic dentistry and complex restorative treatments. Her expertise includes dentures, implant restorations, and full-mouth rehabilitation. Dr. Chen is known for her meticulous work and gentle care, helping patients restore both their smiles and confidence.",
+    bioKey: "dentist.chen.bio",
   },
 ];
 
@@ -56,9 +56,8 @@ const StatsAndDentists = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="py-20 bg-primary">
+    <section id="our-team" className="py-20 bg-primary">
       <div className="container mx-auto px-4">
-        {/* Dentists */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -95,7 +94,7 @@ const StatsAndDentists = () => {
                     </li>
                   ))}
                 </ul>
-                <p className="text-primary-foreground/80 text-xs leading-relaxed mt-auto">{d.bio}</p>
+                <p className="text-primary-foreground/80 text-xs leading-relaxed mt-auto">{t(d.bioKey)}</p>
               </div>
             </motion.div>
           ))}
