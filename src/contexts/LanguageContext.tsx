@@ -11,8 +11,9 @@ interface LanguageContextType {
 const translations: Record<string, Record<Lang, string>> = {
   // Nav
   "nav.home": { en: "Home", zh: "首頁" },
-  "nav.about": { en: "About", zh: "關於我們" },
-  "nav.services": { en: "Services", zh: "服務項目" },
+  "nav.ourOffice": { en: "Our Office", zh: "我們的診所" },
+  "nav.ourTeam": { en: "Our Team", zh: "我們的團隊" },
+  "nav.services": { en: "Our Services", zh: "服務項目" },
   "nav.contact": { en: "Contact", zh: "聯繫我們" },
   "nav.bookNow": { en: "Book Now", zh: "立即預約" },
   
@@ -42,7 +43,7 @@ const translations: Record<string, Record<Lang, string>> = {
   "service.restoratives": { en: "Restoratives", zh: "修復" },
   "service.esthetics": { en: "Esthetics", zh: "美容牙科" },
 
-  // Service short descriptions (one line each, balanced length)
+  // Service short descriptions
   "service.implants.short": { en: "Stable, secure replacements for missing teeth.", zh: "穩定安全的缺牙替代方案。" },
   "service.orthodontics.short": { en: "Align your smile for health and confidence.", zh: "矯正牙齒，提升健康與自信。" },
   "service.pediatric.short": { en: "Gentle dental care for children of all ages.", zh: "溫和的兒童牙科護理服務。" },
@@ -60,6 +61,24 @@ const translations: Record<string, Record<Lang, string>> = {
   
   // Dentists
   "stats.meetTeam": { en: "Meet Our Friendly Dentists", zh: "認識我們的牙醫團隊" },
+
+  // Dentist bios
+  "dentist.wu.bio": {
+    en: "Dr. Patrick Wu graduated with honours from the University of Pennsylvania School of Dental Medicine. After practicing dentistry in New Jersey for four years, he returned to Vancouver in 2012. Dr. Wu provides comprehensive care for patients of all ages, with special interests in implant dentistry, orthodontics, pediatric care, and complex restorative treatments.",
+    zh: "Dr. Patrick Wu 以優異成績畢業於 University of Pennsylvania School of Dental Medicine。在 New Jersey 執業四年後，他於2012年回到溫哥華。Dr. Wu 為各年齡段的患者提供全面的口腔護理，尤其擅長植牙、矯正、兒童牙科和複雜修復治療。"
+  },
+  "dentist.pan.bio": {
+    en: "Dr. Mike Pan is known for his strong clinical skills and thoughtful approach to dental treatment. His areas of expertise include orthodontics, dental implants, wisdom teeth removal, and comprehensive dental care. Outside of dentistry, Dr. Pan enjoys golfing, skiing, woodworking, and music.",
+    zh: "Dr. Mike Pan 以其出色的臨床技能和細心的治療方式而聞名。他的專業領域包括矯正、植牙、智齒拔除和全面牙科護理。工作之餘，Dr. Pan 喜歡打高爾夫球、滑雪、木工和音樂。"
+  },
+  "dentist.lin.bio": {
+    en: "Dr. Ivy Lin is known for her gentle and patient-centered approach to dentistry. She provides comprehensive care for patients of all ages and has particular strength in restorative dentistry. Dr. Lin focuses on creating a comfortable and relaxing experience while delivering high-quality dental treatment.",
+    zh: "Dr. Ivy Lin 以其溫和且以患者為中心的治療方式而聞名。她為各年齡段的患者提供全面的口腔護理，尤其擅長修復牙科。Dr. Lin 專注於在提供高質量牙科治療的同時，為患者創造舒適和放鬆的體驗。"
+  },
+  "dentist.chen.bio": {
+    en: "Dr. Jie Chen is an experienced prosthodontist specializing in cosmetic dentistry and complex restorative treatments. Her expertise includes dentures, implant restorations, and full-mouth rehabilitation. Dr. Chen is known for her meticulous work and gentle care, helping patients restore both their smiles and confidence.",
+    zh: "Dr. Jie Chen 是一位經驗豐富的修復牙科專家，專精於美容牙科和複雜修復治療。她的專業領域包括假牙、植牙修復和全口重建。Dr. Chen 以其精細的工作和溫和的護理而聞名，幫助患者恢復笑容和自信。"
+  },
 
   // Google Reviews
   "reviews.average": { en: "4.9 Average Rating", zh: "4.9 平均評分" },
@@ -79,13 +98,6 @@ const translations: Record<string, Record<Lang, string>> = {
   "contact.monFri": { en: "Mon – Fri: 9:00am – 6:00pm", zh: "週一至週五：9:00am – 6:00pm" },
   "contact.sat": { en: "Saturday: 9:00am – 5:00pm", zh: "週六：9:00am – 5:00pm" },
   "contact.sun": { en: "Sunday: Closed", zh: "週日：休息" },
-  
-  // About
-  "about.title": { en: "About Friendly Dental Centre", zh: "關於 Friendly Dental Centre" },
-  "about.subtitle": { en: "Your Trusted Richmond Dental Partner", zh: "您值得信賴的列治文牙科夥伴" },
-  "about.p1": { en: "Our friendly team is committed to providing you with the highest level of professional services and personalized care in a warm and welcoming environment.", zh: "我們友善的團隊致力於在溫馨的環境中為您提供最高水平的專業服務和個性化護理。" },
-  "about.p2": { en: "We believe that building strong relationships with our patients is the key to exceptional dental care, and we look forward to knowing you and your unique needs.", zh: "我們相信，與患者建立牢固的關係是提供卓越牙科護理的關鍵，我們期待了解您和您的獨特需求。" },
-  "about.p3": { en: "Thank you for choosing Friendly Dental in achieving your optimal oral health.", zh: "感謝您選擇 Friendly Dental，讓我們幫助您實現最佳口腔健康。" },
   
   // FAQ
   "faq.title": { en: "Frequently Asked Questions", zh: "常見問題" },
