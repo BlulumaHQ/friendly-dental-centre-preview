@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
-import clinicPhoto1 from "@/assets/clinic-photo-1.jpg";
-import clinicPhoto2 from "@/assets/clinic-photo-2.jpg";
+import clinicPhotoPediatric from "@/assets/clinic-photo-pediatric.jpg";
+import clinicPhotoWaiting from "@/assets/clinic-photo-waiting.jpg";
+import clinicPhotoOperatory from "@/assets/clinic-photo-operatory.jpg";
 import clinicPhoto3 from "@/assets/clinic-photo-3.jpg";
 import clinicPhoto4 from "@/assets/clinic-photo-4.jpg";
 
-const slides = [clinicPhoto1, clinicPhoto2, clinicPhoto3, clinicPhoto4];
+const slides = [clinicPhotoPediatric, clinicPhotoWaiting, clinicPhotoOperatory, clinicPhoto3, clinicPhoto4];
 
 const WelcomeSection = () => {
   const { t } = useLanguage();
@@ -53,7 +54,7 @@ const WelcomeSection = () => {
                     i === current ? "border-primary" : "border-transparent opacity-60 hover:opacity-100"
                   }`}
                 >
-                  <img src={src} alt="" className="w-16 h-12 object-cover" />
+                  <img src={src} alt="" className="w-14 h-10 object-cover" />
                 </button>
               ))}
             </div>
