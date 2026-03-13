@@ -9,10 +9,12 @@ import GoogleReviews from "@/components/GoogleReviews";
 import FAQSection from "@/components/FAQSection";
 import ContactMapSection from "@/components/ContactMapSection";
 import StickyBookNow from "@/components/StickyBookNow";
+import PageLoader from "@/components/PageLoader";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <PageLoader />
       <Header />
       <main>
         <HeroSection />

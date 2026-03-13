@@ -121,9 +121,9 @@ const Footer = () => {
                   </li>
                 </ul>
               </div>
-            </div>
           </div>
         </div>
+      </div>
       </div>
 
       {/* Bottom bar */}

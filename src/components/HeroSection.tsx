@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Phone } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useIsMobile } from "@/hooks/use-mobile";
+import heroMobileFallback from "@/assets/hero-mobile-fallback.jpg";
 
 const HeroSection = () => {
   const { t } = useLanguage();
@@ -14,19 +15,14 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-[85vh] flex items-center overflow-hidden">
-      {/* Background video */}
+      {/* Background media */}
       <div className="absolute inset-0">
         {isMobile ? (
-          <video
-            key="mobile"
-            autoPlay
-            muted
-            loop
-            playsInline
+          <img
+            src={heroMobileFallback}
+            alt=""
             className="w-full h-full object-cover"
-          >
-            <source src="/videos/hero-mobile.mp4" type="video/mp4" />
-          </video>
+          />
         ) : (
           <video
             key="desktop"
