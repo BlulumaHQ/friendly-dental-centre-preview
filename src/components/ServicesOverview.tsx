@@ -41,12 +41,13 @@ const ServicesOverview = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
+              className="h-full"
             >
               <Link
                 to={`/services${s.anchor}`}
-                className="flex flex-col items-center text-center p-6 rounded-xl bg-background hover:shadow-lg transition-all hover:-translate-y-1 group"
+                className="flex flex-col items-center justify-center text-center p-6 rounded-xl bg-background hover:shadow-lg transition-all hover:-translate-y-1 group h-full min-h-[220px]"
               >
-                <div className="w-20 h-20 mb-4">
+                <div className="w-20 h-20 mb-4 shrink-0">
                   <img src={s.icon} alt={t(`service.${s.key}`)} className="w-full h-full" />
                 </div>
                 <h3 className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors mb-1">
