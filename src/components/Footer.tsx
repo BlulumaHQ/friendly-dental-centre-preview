@@ -96,7 +96,7 @@ const Footer = () => {
               {/* Contact */}
               <div>
                 <h4 className="font-semibold text-lg mb-4">{t("nav.contact")}</h4>
-                <ul className="space-y-3 text-sm text-white/80">
+                <ul className="space-y-3 text-base text-white/80 whitespace-nowrap">
                   <li className="flex items-start gap-2">
                     <Phone className="h-4 w-4 mt-0.5 flex-shrink-0" />
                     <a href="tel:6042738315" className="hover:text-secondary transition-colors">604-273-8315</a>
