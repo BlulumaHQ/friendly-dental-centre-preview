@@ -24,7 +24,10 @@ const Footer = () => {
           <div className="lg:col-span-1">
             <img src={footerLogo} alt="Friendly Dental Centre" className="h-12 mb-4" />
             <p className="text-sm text-white/70 mb-2">
-              {t("footer.visitVancouver")}
+              {lang === "en"
+                ? <>We also welcome patients at our Vancouver clinic, <a href="https://littlemountaindental.ca/" target="_blank" rel="noopener noreferrer" className="underline hover:text-secondary transition-colors">Little Mountain Dental Centre</a>.</>
+                : <>我們也歡迎患者到我們的溫哥華診所 <a href="https://littlemountaindental.ca/" target="_blank" rel="noopener noreferrer" className="underline hover:text-secondary transition-colors">Little Mountain Dental Centre</a> 就診。</>
+              }
             </p>
           </div>
 
