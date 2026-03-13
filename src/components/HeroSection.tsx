@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 import { Phone } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import heroBg from "@/assets/hero-bg.jpg";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const HeroSection = () => {
   const { t } = useLanguage();
+  const isMobile = useIsMobile();
 
   const scrollToContact = () => {
     const el = document.getElementById("contact-form");
@@ -13,14 +14,32 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-[85vh] flex items-center overflow-hidden">
-      {/* Background image with ken burns */}
+      {/* Background video */}
       <div className="absolute inset-0">
-        <img
-          src={heroBg}
-          alt="Luxury dental clinic"
-          className="w-full h-full object-cover hero-ken-burns"
-        />
-        <div className="absolute inset-0 bg-[hsl(var(--hero-overlay)/0.65)]" />
+        {isMobile ? (
+          <video
+            key="mobile"
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover"
+          >
+            <source src="/videos/hero-mobile.mp4" type="video/mp4" />
+          </video>
+        ) : (
+          <video
+            key="desktop"
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover"
+          >
+            <source src="/videos/hero-desktop.mp4" type="video/mp4" />
+          </video>
+        )}
+        <div className="absolute inset-0 bg-black/25" />
       </div>
 
       <div className="relative container mx-auto px-4 py-20">
