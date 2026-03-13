@@ -14,23 +14,22 @@ const translations: Record<string, Record<Lang, string>> = {
   "nav.about": { en: "About", zh: "關於我們" },
   "nav.services": { en: "Services", zh: "服務項目" },
   "nav.contact": { en: "Contact", zh: "聯繫我們" },
-  "nav.faq": { en: "FAQ", zh: "常見問題" },
   "nav.bookNow": { en: "Book Now", zh: "立即預約" },
   
   // Hero
   "hero.subtitle": { en: "RICHMOND DENTAL PROFESSIONALS", zh: "列治文專業牙科" },
   "hero.title1": { en: "Welcome to", zh: "歡迎來到" },
-  "hero.title2": { en: "Friendly Dental Centre", zh: "友善牙科中心" },
+  "hero.title2": { en: "Friendly Dental Centre", zh: "Friendly Dental Centre" },
   "hero.desc": { en: "Your trusted dental care partner in Richmond. Experience personalized, gentle dentistry in a warm and welcoming environment.", zh: "您在列治文值得信賴的牙科護理夥伴。在溫馨的環境中體驗個性化、溫和的牙科治療。" },
   "hero.cta": { en: "Book Your Appointment", zh: "預約您的門診" },
   "hero.call": { en: "Call Us", zh: "致電我們" },
   
   // Welcome
-  "welcome.title": { en: "Welcome to Friendly Dental Centre", zh: "歡迎來到友善牙科中心" },
-  "welcome.desc": { en: "Our friendly team is committed to providing you with the highest level of professional services and personalized care in a warm and welcoming environment. We believe that building strong relationships with our patients is the key to exceptional dental care, and we look forward to knowing you and your unique needs. Thank you for choosing Friendly Dental in achieving your optimal oral health.", zh: "我們友善的團隊致力於在溫馨的環境中為您提供最高水平的專業服務和個性化護理。我們相信，與患者建立牢固的關係是提供卓越牙科護理的關鍵，我們期待了解您和您的獨特需求。感謝您選擇友善牙科，讓我們幫助您實現最佳口腔健康。" },
+  "welcome.title": { en: "Welcome to Friendly Dental Centre", zh: "歡迎來到 Friendly Dental Centre" },
+  "welcome.desc": { en: "Our friendly team is committed to providing you with the highest level of professional services and personalized care in a warm and welcoming environment. We believe that building strong relationships with our patients is the key to exceptional dental care, and we look forward to knowing you and your unique needs. Thank you for choosing Friendly Dental in achieving your optimal oral health.", zh: "我們友善的團隊致力於在溫馨的環境中為您提供最高水平的專業服務和個性化護理。我們相信，與患者建立牢固的關係是提供卓越牙科護理的關鍵，我們期待了解您和您的獨特需求。感謝您選擇 Friendly Dental，讓我們幫助您實現最佳口腔健康。" },
   
   // Why Trust
-  "trust.title": { en: "Why Trust Friendly Dental?", zh: "為什麼信任友善牙科？" },
+  "trust.title": { en: "Why Trust Friendly Dental?", zh: "為什麼信任 Friendly Dental？" },
   "trust.desc": { en: "We understand that visiting the dentist can be stressful. Our highly trained and knowledgeable team is dedicated in providing you with personalized care in a warm and inviting environment. We take time learning about your concerns and answering your questions. Let us take care of your dental needs while keeping your mind at ease.", zh: "我們理解看牙醫可能會令人緊張。我們訓練有素、知識淵博的團隊致力於在溫馨的環境中為您提供個性化的護理。我們會花時間了解您的顧慮並回答您的問題。讓我們照顧您的牙科需求，同時讓您安心。" },
   
   // Services
@@ -42,21 +41,29 @@ const translations: Record<string, Record<Lang, string>> = {
   "service.maintenance": { en: "Maintenance", zh: "保養" },
   "service.restoratives": { en: "Restoratives", zh: "修復" },
   "service.esthetics": { en: "Esthetics", zh: "美容牙科" },
+
+  // Service short descriptions (one line each, balanced length)
+  "service.implants.short": { en: "Stable, secure replacements for missing teeth.", zh: "穩定安全的缺牙替代方案。" },
+  "service.orthodontics.short": { en: "Align your smile for health and confidence.", zh: "矯正牙齒，提升健康與自信。" },
+  "service.pediatric.short": { en: "Gentle dental care for children of all ages.", zh: "溫和的兒童牙科護理服務。" },
+  "service.maintenance.short": { en: "Professional cleanings and preventive exams.", zh: "專業清潔與預防性檢查。" },
+  "service.restoratives.short": { en: "Repair and restore damaged or missing teeth.", zh: "修復受損或缺失的牙齒。" },
+  "service.esthetics.short": { en: "Enhance your smile with cosmetic treatments.", zh: "美容治療，提升您的笑容。" },
   
   // Services detail
   "service.implants.desc": { en: "Dental implants are a stable and secure surgical option for replacing one or more missing teeth. A dental implant uses an artificial root usually made of titanium. The implant is surgically inserted into the upper or lower jawbone and an artificial tooth is attached to the implant.", zh: "牙科植體是替代一顆或多顆缺失牙齒的穩定且安全的手術選擇。牙科植體使用通常由鈦製成的人工牙根。植體通過手術植入上頜骨或下頜骨，然後將人造牙齒連接到植體上。" },
   "service.orthodontics.desc": { en: "Whether you are an adult or a teen, a healthy smile with bright, well-aligned teeth can be an important part of your self-image. Improper alignments can also affect speech, chewing and digestion.", zh: "無論您是成人還是青少年，擁有明亮、整齊牙齒的健康笑容都是自我形象的重要組成部分。不正確的排列還會影響語言、咀嚼和消化。" },
-  "service.pediatric.desc": { en: "Regular dental maintenance, including professional cleanings and comprehensive exams, is critical for maintaining good oral health. Professional cleaning is the most effective way of tackling tartar build-up and removing plaque.", zh: "定期的牙科保養，包括專業清潔和全面檢查，對維持良好的口腔健康至關重要。專業清潔是處理牙垢積聚和去除牙菌斑最有效的方法。" },
-  "service.maintenance.desc": { en: "We offer children's dentistry services to help your child maintain a healthy smile from an early age. We are experienced in working with children and will make sure your child feels comfortable and at ease during their dental visit.", zh: "我們提供兒童牙科服務，幫助您的孩子從小保持健康的笑容。我們在與兒童合作方面經驗豐富，確保您的孩子在牙科就診期間感到舒適和放鬆。" },
+  "service.pediatric.desc": { en: "We offer children's dentistry services to help your child maintain a healthy smile from an early age. We are experienced in working with children and will make sure your child feels comfortable and at ease during their dental visit.", zh: "我們提供兒童牙科服務，幫助您的孩子從小保持健康的笑容。我們在與兒童合作方面經驗豐富，確保您的孩子在牙科就診期間感到舒適和放鬆。" },
+  "service.maintenance.desc": { en: "Regular dental maintenance, including professional cleanings and comprehensive exams, is critical for maintaining good oral health. Professional cleaning is the most effective way of tackling tartar build-up and removing plaque.", zh: "定期的牙科保養，包括專業清潔和全面檢查，對維持良好的口腔健康至關重要。專業清潔是處理牙垢積聚和去除牙菌斑最有效的方法。" },
   "service.restoratives.desc": { en: "Our restorative dentistry services can help repair damage caused by decay, injury, or other factors and restore your teeth to their optimal health and function. From filling cavities to root canals to repairing broken or missing teeth with dental implants or bridges.", zh: "我們的修復牙科服務可以幫助修復由蛀牙、損傷或其他因素造成的損害，並將您的牙齒恢復到最佳健康和功能狀態。" },
   "service.esthetics.desc": { en: "We believe that a beautiful smile can boost your confidence and improve your overall quality of life. Our esthetic dentistry services, including veneers, teeth whitening, direct composite bonding, and other cosmetic treatments, can help enhance the appearance of your teeth.", zh: "我們相信，美麗的笑容可以增強您的自信並改善您的整體生活質量。我們的美容牙科服務，包括貼面、牙齒美白、直接複合材料粘接和其他美容治療，可以幫助改善您牙齒的外觀。" },
   
-  // Stats
-  "stats.years": { en: "Years in Business", zh: "經營年數" },
-  "stats.dentists": { en: "Expert Dentists", zh: "專業牙醫" },
-  "stats.services": { en: "Dental Services", zh: "牙科服務" },
-  "stats.patients": { en: "Happy Patients", zh: "滿意患者" },
+  // Dentists
   "stats.meetTeam": { en: "Meet Our Friendly Dentists", zh: "認識我們的牙醫團隊" },
+
+  // Google Reviews
+  "reviews.average": { en: "4.9 Average Rating", zh: "4.9 平均評分" },
+  "reviews.basedOn": { en: "Based on Google Reviews", zh: "基於 Google 評論" },
   
   // Contact
   "contact.title": { en: "Get In Touch", zh: "聯繫我們" },
@@ -74,11 +81,11 @@ const translations: Record<string, Record<Lang, string>> = {
   "contact.sun": { en: "Sunday: Closed", zh: "週日：休息" },
   
   // About
-  "about.title": { en: "About Friendly Dental Centre", zh: "關於友善牙科中心" },
+  "about.title": { en: "About Friendly Dental Centre", zh: "關於 Friendly Dental Centre" },
   "about.subtitle": { en: "Your Trusted Richmond Dental Partner", zh: "您值得信賴的列治文牙科夥伴" },
   "about.p1": { en: "Our friendly team is committed to providing you with the highest level of professional services and personalized care in a warm and welcoming environment.", zh: "我們友善的團隊致力於在溫馨的環境中為您提供最高水平的專業服務和個性化護理。" },
   "about.p2": { en: "We believe that building strong relationships with our patients is the key to exceptional dental care, and we look forward to knowing you and your unique needs.", zh: "我們相信，與患者建立牢固的關係是提供卓越牙科護理的關鍵，我們期待了解您和您的獨特需求。" },
-  "about.p3": { en: "Thank you for choosing Friendly Dental in achieving your optimal oral health.", zh: "感謝您選擇友善牙科，讓我們幫助您實現最佳口腔健康。" },
+  "about.p3": { en: "Thank you for choosing Friendly Dental in achieving your optimal oral health.", zh: "感謝您選擇 Friendly Dental，讓我們幫助您實現最佳口腔健康。" },
   
   // FAQ
   "faq.title": { en: "Frequently Asked Questions", zh: "常見問題" },
@@ -94,7 +101,7 @@ const translations: Record<string, Record<Lang, string>> = {
   "faq.a5": { en: "Yes, we do our best to accommodate dental emergencies. Please call our office immediately if you're experiencing a dental emergency.", zh: "是的，我們盡最大努力處理牙科緊急情況。如果您遇到牙科緊急情況，請立即致電我們的診所。" },
 
   // Footer
-  "footer.visitVancouver": { en: "Visit our Vancouver Office: Little Mountain Dental Centre", zh: "歡迎來訪我們的溫哥華診所：小山牙科中心" },
+  "footer.visitVancouver": { en: "We also welcome patients at our Vancouver clinic, Little Mountain Dental Centre.", zh: "我們也歡迎患者到我們的溫哥華診所 Little Mountain Dental Centre 就診。" },
   "footer.links": { en: "Links", zh: "連結" },
   "footer.ourOffice": { en: "Our Office", zh: "我們的診所" },
   "footer.ourServices": { en: "Our Services", zh: "我們的服務" },

@@ -1,17 +1,9 @@
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import dentistWu from "@/assets/dentist-wu.jpg";
 import dentistPan from "@/assets/dentist-pan.jpg";
 import dentistLin from "@/assets/dentist-lin.jpg";
 import dentistChen from "@/assets/dentist-chen.jpg";
-
-const stats = [
-  { value: 10, suffix: "+", key: "stats.years" },
-  { value: 4, suffix: "", key: "stats.dentists" },
-  { value: 6, suffix: "", key: "stats.services" },
-  { value: 1000, suffix: "+", key: "stats.patients" },
-];
 
 const dentists = [
   {
@@ -54,71 +46,12 @@ const dentists = [
   },
 ];
 
-const CountUp = ({ target, suffix }: { target: number; suffix: string }) => {
-  const [count, setCount] = useState(0);
-  const ref = useRef<HTMLDivElement>(null);
-  const [started, setStarted] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !started) {
-          setStarted(true);
-        }
-      },
-      { threshold: 0.3 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [started]);
-
-  useEffect(() => {
-    if (!started) return;
-    const duration = 2000;
-    const steps = 60;
-    const increment = target / steps;
-    let current = 0;
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= target) {
-        setCount(target);
-        clearInterval(timer);
-      } else {
-        setCount(Math.floor(current));
-      }
-    }, duration / steps);
-    return () => clearInterval(timer);
-  }, [started, target]);
-
-  return (
-    <div ref={ref} className="text-4xl md:text-5xl font-bold text-secondary">
-      {count.toLocaleString()}{suffix}
-    </div>
-  );
-};
-
 const StatsAndDentists = () => {
   const { t } = useLanguage();
 
   return (
     <section className="py-20 bg-primary">
       <div className="container mx-auto px-4">
-        {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
-          {stats.map((stat) => (
-            <motion.div
-              key={stat.key}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center"
-            >
-              <CountUp target={stat.value} suffix={stat.suffix} />
-              <p className="text-primary-foreground/80 text-sm mt-2 font-medium">{t(stat.key)}</p>
-            </motion.div>
-          ))}
-        </div>
-
         {/* Dentists */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

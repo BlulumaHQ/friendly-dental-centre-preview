@@ -5,7 +5,7 @@ import footerLogo from "@/assets/footer-logo.svg";
 import drwuLogo from "@/assets/drwu-logo.png";
 
 const Footer = () => {
-  const { t } = useLanguage();
+  const { lang, t } = useLanguage();
 
   const services = [
     { name: "service.implants", anchor: "#implants" },
@@ -17,32 +17,34 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-section-dark text-section-dark-foreground">
+    <footer style={{ backgroundColor: "#336799" }} className="text-white">
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Logo & info */}
           <div className="lg:col-span-1">
             <img src={footerLogo} alt="Friendly Dental Centre" className="h-12 mb-4" />
-            <p className="text-sm text-section-dark-foreground/70 mb-2">
-              {t("footer.visitVancouver")}
+            <p className="text-sm text-white/70 mb-2">
+              {lang === "en"
+                ? <>We also welcome patients at our Vancouver clinic, <a href="https://littlemountaindental.ca/" target="_blank" rel="noopener noreferrer" className="underline hover:text-secondary transition-colors">Little Mountain Dental Centre</a>.</>
+                : <>我們也歡迎患者到我們的溫哥華診所 <a href="https://littlemountaindental.ca/" target="_blank" rel="noopener noreferrer" className="underline hover:text-secondary transition-colors">Little Mountain Dental Centre</a> 就診。</>
+              }
             </p>
           </div>
 
           {/* Links */}
           <div>
             <h4 className="font-semibold text-lg mb-4">{t("footer.links")}</h4>
-            <ul className="space-y-2 text-sm text-section-dark-foreground/80">
+            <ul className="space-y-2 text-sm text-white/80">
               <li><Link to="/" className="hover:text-secondary transition-colors">{t("nav.home")}</Link></li>
               <li><Link to="/about" className="hover:text-secondary transition-colors">{t("nav.about")}</Link></li>
               <li><Link to="/services" className="hover:text-secondary transition-colors">{t("nav.services")}</Link></li>
-              <li><Link to="/faq" className="hover:text-secondary transition-colors">{t("nav.faq")}</Link></li>
             </ul>
           </div>
 
           {/* Services */}
           <div>
             <h4 className="font-semibold text-lg mb-4">{t("nav.services")}</h4>
-            <ul className="space-y-2 text-sm text-section-dark-foreground/80">
+            <ul className="space-y-2 text-sm text-white/80">
               {services.map((s) => (
                 <li key={s.anchor}>
                   <Link to={`/services${s.anchor}`} className="hover:text-secondary transition-colors">
@@ -56,7 +58,7 @@ const Footer = () => {
           {/* Contact */}
           <div>
             <h4 className="font-semibold text-lg mb-4">{t("nav.contact")}</h4>
-            <ul className="space-y-3 text-sm text-section-dark-foreground/80">
+            <ul className="space-y-3 text-sm text-white/80">
               <li className="flex items-start gap-2">
                 <Phone className="h-4 w-4 mt-0.5 flex-shrink-0" />
                 <a href="tel:6042738315" className="hover:text-secondary transition-colors">604-273-8315</a>
@@ -85,8 +87,8 @@ const Footer = () => {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-section-dark-foreground/10">
-        <div className="container mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-section-dark-foreground/70">
+      <div className="border-t border-white/10">
+        <div className="container mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-white/70">
           <div className="flex items-center gap-3">
             <span>© {new Date().getFullYear()} Friendly Dental Centre</span>
             <span className="flex items-center gap-1.5">
@@ -96,9 +98,9 @@ const Footer = () => {
               </a>
             </span>
           </div>
-          <span className="text-section-dark-foreground/30">
+          <span className="text-white/25">
             Web Design by{" "}
-            <a href="https://bluluma.com" target="_blank" rel="noopener noreferrer" className="hover:text-section-dark-foreground/50 transition-colors">
+            <a href="https://bluluma.com" target="_blank" rel="noopener noreferrer" className="hover:text-white/40 transition-colors">
               Bluluma.com
             </a>
           </span>

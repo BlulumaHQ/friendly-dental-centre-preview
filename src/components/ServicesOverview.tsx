@@ -46,12 +46,15 @@ const ServicesOverview = () => {
                 to={`/services${s.anchor}`}
                 className="flex flex-col items-center text-center p-6 rounded-xl bg-background hover:shadow-lg transition-all hover:-translate-y-1 group"
               >
-                <div className="service-icon w-20 h-20 mb-4">
+                <div className="w-20 h-20 mb-4">
                   <img src={s.icon} alt={t(`service.${s.key}`)} className="w-full h-full" />
                 </div>
-                <h3 className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
+                <h3 className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors mb-1">
                   {t(`service.${s.key}`)}
                 </h3>
+                <p className="text-xs text-muted-foreground leading-snug">
+                  {t(`service.${s.key}.short`)}
+                </p>
               </Link>
             </motion.div>
           ))}

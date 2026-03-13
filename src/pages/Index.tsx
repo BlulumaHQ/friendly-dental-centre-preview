@@ -5,6 +5,8 @@ import WelcomeSection from "@/components/WelcomeSection";
 import WhyTrustSection from "@/components/WhyTrustSection";
 import ServicesOverview from "@/components/ServicesOverview";
 import StatsAndDentists from "@/components/StatsAndDentists";
+import GoogleReviews from "@/components/GoogleReviews";
+import FAQSection from "@/components/FAQSection";
 import ContactMapSection from "@/components/ContactMapSection";
 import StickyBookNow from "@/components/StickyBookNow";
 
@@ -18,6 +20,8 @@ const Index = () => {
         <WhyTrustSection />
         <ServicesOverview />
         <StatsAndDentists />
+        <GoogleReviews />
+        <FAQSection />
         <ContactMapSection />
       </main>
       <Footer />
