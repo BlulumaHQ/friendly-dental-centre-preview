@@ -50,7 +50,7 @@ const Footer = () => {
   return (
     <footer style={{ backgroundColor: "#336799" }} className="text-white">
       <div className="container mx-auto px-4 py-16">
-        <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-12">
+        <div className="flex flex-col lg:flex-row lg:items-start gap-12">
           {/* Left block */}
           <div className="lg:max-w-xs shrink-0">
             <img src={footerLogo} alt="Friendly Dental Centre" className="h-12 mb-4" />
@@ -62,9 +62,11 @@ const Footer = () => {
             </p>
           </div>
 
+          {/* Fixed spacer */}
+          <div className="hidden lg:block w-[85px] shrink-0" aria-hidden="true" />
+
           {/* Right block */}
           <div className="shrink-0">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 lg:gap-14">
               {/* Links */}
               <div>
                 <h4 className="font-semibold text-lg mb-4">{t("footer.links")}</h4>
