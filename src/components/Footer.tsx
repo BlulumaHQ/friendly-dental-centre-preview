@@ -5,7 +5,7 @@ import footerLogo from "@/assets/footer-logo.svg";
 import drwuLogo from "@/assets/drwu-logo.png";
 
 const Footer = () => {
-  const { t } = useLanguage();
+  const { lang, t } = useLanguage();
 
   const services = [
     { name: "service.implants", anchor: "#implants" },
