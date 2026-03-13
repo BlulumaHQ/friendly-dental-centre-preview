@@ -50,9 +50,9 @@ const Footer = () => {
   return (
     <footer style={{ backgroundColor: "#336799" }} className="text-white">
       <div className="container mx-auto px-4 py-16">
-        <div className="flex flex-col lg:flex-row lg:items-start gap-12">
-          {/* Left block */}
-          <div className="lg:max-w-xs shrink-0">
+        <div className="grid grid-cols-1 lg:grid-cols-[3fr_4fr_4fr_4fr_3fr] gap-8 lg:gap-0">
+          {/* Column 1: Logo */}
+          <div>
             <img src={footerLogo} alt="Friendly Dental Centre" className="h-12 mb-4" />
             <p className="text-base text-white/70 mb-2">
               {lang === "en"
@@ -62,69 +62,64 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Fixed spacer */}
-          <div className="hidden lg:block w-[85px] shrink-0" aria-hidden="true" />
+          {/* Column 2: Spacer */}
+          <div className="hidden lg:block" aria-hidden="true" />
 
-          {/* Right block */}
-          <div className="shrink-0">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 lg:gap-14">
-              {/* Links */}
-              <div>
-                <h4 className="font-semibold text-lg mb-4">{t("footer.links")}</h4>
-                <ul className="space-y-2 text-base text-white/80">
-                  {navItems.map((item) => (
-                    <li key={item.label}>
-                      <button onClick={item.action} className="hover:text-secondary transition-colors">
-                        {t(item.label)}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+          {/* Column 3: Links */}
+          <div>
+            <h4 className="font-semibold text-lg mb-4">{t("footer.links")}</h4>
+            <ul className="space-y-2 text-base text-white/80">
+              {navItems.map((item) => (
+                <li key={item.label}>
+                  <button onClick={item.action} className="hover:text-secondary transition-colors">
+                    {t(item.label)}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-              {/* Services */}
-              <div>
-                <h4 className="font-semibold text-lg mb-4">{t("nav.services")}</h4>
-                <ul className="space-y-2 text-base text-white/80">
-                  {services.map((s) => (
-                    <li key={s.anchor}>
-                      <Link to={`/services${s.anchor}`} className="hover:text-secondary transition-colors">
-                        {t(s.name)}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+          {/* Column 4: Services */}
+          <div>
+            <h4 className="font-semibold text-lg mb-4">{t("nav.services")}</h4>
+            <ul className="space-y-2 text-base text-white/80">
+              {services.map((s) => (
+                <li key={s.anchor}>
+                  <Link to={`/services${s.anchor}`} className="hover:text-secondary transition-colors">
+                    {t(s.name)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-              {/* Contact */}
-              <div>
-                <h4 className="font-semibold text-lg mb-4">{t("nav.contact")}</h4>
-                <ul className="space-y-3 text-base text-white/80 whitespace-nowrap">
-                  <li className="flex items-start gap-2">
-                    <Phone className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                    <a href="tel:6042738315" className="hover:text-secondary transition-colors">604-273-8315</a>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                    <a href="https://maps.app.goo.gl/siy6NG1vN6Ckz9R9" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors">
-                      {t("contact.address")}
-                    </a>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Mail className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                    <a href="mailto:info@friendlydental.ca" className="hover:text-secondary transition-colors">info@friendlydental.ca</a>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Clock className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                    <div>
-                      <p>{t("contact.monFri")}</p>
-                      <p>{t("contact.sat")}</p>
-                      <p>{t("contact.sun")}</p>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
+          {/* Column 5: Contact */}
+          <div>
+            <h4 className="font-semibold text-lg mb-4">{t("nav.contact")}</h4>
+            <ul className="space-y-3 text-base text-white/80 whitespace-nowrap">
+              <li className="flex items-start gap-2">
+                <Phone className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                <a href="tel:6042738315" className="hover:text-secondary transition-colors">604-273-8315</a>
+              </li>
+              <li className="flex items-start gap-2">
+                <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                <a href="https://maps.app.goo.gl/siy6NG1vN6Ckz9R9" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors">
+                  {t("contact.address")}
+                </a>
+              </li>
+              <li className="flex items-start gap-2">
+                <Mail className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                <a href="mailto:info@friendlydental.ca" className="hover:text-secondary transition-colors">info@friendlydental.ca</a>
+              </li>
+              <li className="flex items-start gap-2">
+                <Clock className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                <div>
+                  <p>{t("contact.monFri")}</p>
+                  <p>{t("contact.sat")}</p>
+                  <p>{t("contact.sun")}</p>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
