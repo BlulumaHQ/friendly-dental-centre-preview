@@ -50,9 +50,9 @@ const Footer = () => {
   return (
     <footer style={{ backgroundColor: "#336799" }} className="text-white">
       <div className="container mx-auto px-4 py-16">
-        <div className="flex flex-col lg:flex-row gap-10 lg:gap-0">
+        <div className="flex flex-col lg:flex-row gap-10 lg:justify-between">
           {/* Logo & info — left side */}
-          <div className="lg:w-[340px] flex-shrink-0">
+          <div className="lg:max-w-[300px] flex-shrink-0">
             <img src={footerLogo} alt="Friendly Dental Centre" className="h-12 mb-4" />
             <p className="text-sm text-white/70 mb-2">
               {lang === "en"
@@ -62,11 +62,8 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Spacer */}
-          <div className="hidden lg:block flex-1" />
-
-          {/* Right columns */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 lg:gap-16 flex-shrink-0">
+          {/* Right columns — pushed far right */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 lg:gap-14 flex-shrink-0">
             {/* Links */}
             <div>
               <h4 className="font-semibold text-lg mb-4">{t("footer.links")}</h4>

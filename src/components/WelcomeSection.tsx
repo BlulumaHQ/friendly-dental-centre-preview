@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
-import clinicPhotoPediatric from "@/assets/clinic-photo-pediatric.jpg";
-import clinicPhotoWaiting from "@/assets/clinic-photo-waiting.jpg";
-import clinicPhotoOperatory from "@/assets/clinic-photo-operatory.jpg";
-import clinicPhoto3 from "@/assets/clinic-photo-3.jpg";
-import clinicPhoto4 from "@/assets/clinic-photo-4.jpg";
+import slide000 from "@/assets/slide-000.jpg";
+import slide002 from "@/assets/slide-002.jpg";
+import slide003 from "@/assets/slide-003.jpg";
+import slide005 from "@/assets/slide-005.jpg";
+import slide006 from "@/assets/slide-006.jpg";
 
-const slides = [clinicPhotoPediatric, clinicPhotoWaiting, clinicPhotoOperatory, clinicPhoto3, clinicPhoto4];
+const slides = [slide000, slide002, slide003, slide005, slide006];
 
 const WelcomeSection = () => {
   const { t } = useLanguage();
