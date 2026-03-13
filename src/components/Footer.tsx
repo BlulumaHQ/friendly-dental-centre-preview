@@ -50,9 +50,9 @@ const Footer = () => {
   return (
     <footer style={{ backgroundColor: "#336799" }} className="text-white">
       <div className="container mx-auto px-4 py-16">
-        <div className="flex flex-col lg:flex-row gap-10 lg:justify-between">
-          {/* Logo & info — left side */}
-          <div className="lg:max-w-[300px] flex-shrink-0">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-start">
+          {/* Left block */}
+          <div className="lg:col-span-4 xl:col-span-3">
             <img src={footerLogo} alt="Friendly Dental Centre" className="h-12 mb-4" />
             <p className="text-sm text-white/70 mb-2">
               {lang === "en"
@@ -62,63 +62,68 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Right columns — pushed far right */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 lg:gap-14 flex-shrink-0">
-            {/* Links */}
-            <div>
-              <h4 className="font-semibold text-lg mb-4">{t("footer.links")}</h4>
-              <ul className="space-y-2 text-sm text-white/80">
-                {navItems.map((item) => (
-                  <li key={item.label}>
-                    <button onClick={item.action} className="hover:text-secondary transition-colors">
-                      {t(item.label)}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          {/* Large intentional empty gap */}
+          <div className="hidden lg:block lg:col-span-3 xl:col-span-4" aria-hidden="true" />
 
-            {/* Services */}
-            <div>
-              <h4 className="font-semibold text-lg mb-4">{t("nav.services")}</h4>
-              <ul className="space-y-2 text-sm text-white/80">
-                {services.map((s) => (
-                  <li key={s.anchor}>
-                    <Link to={`/services${s.anchor}`} className="hover:text-secondary transition-colors">
-                      {t(s.name)}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          {/* Right block */}
+          <div className="lg:col-span-5 lg:justify-self-end w-full max-w-[720px]">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 lg:gap-12">
+              {/* Links */}
+              <div>
+                <h4 className="font-semibold text-lg mb-4">{t("footer.links")}</h4>
+                <ul className="space-y-2 text-sm text-white/80">
+                  {navItems.map((item) => (
+                    <li key={item.label}>
+                      <button onClick={item.action} className="hover:text-secondary transition-colors">
+                        {t(item.label)}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-            {/* Contact */}
-            <div>
-              <h4 className="font-semibold text-lg mb-4">{t("nav.contact")}</h4>
-              <ul className="space-y-3 text-sm text-white/80">
-                <li className="flex items-start gap-2">
-                  <Phone className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                  <a href="tel:6042738315" className="hover:text-secondary transition-colors">604-273-8315</a>
-                </li>
-                <li className="flex items-start gap-2">
-                  <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                  <a href="https://maps.app.goo.gl/siy6NG1vN6Ckz9zR9" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors">
-                    {t("contact.address")}
-                  </a>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Mail className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                  <a href="mailto:info@friendlydental.ca" className="hover:text-secondary transition-colors">info@friendlydental.ca</a>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Clock className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                  <div>
-                    <p>{t("contact.monFri")}</p>
-                    <p>{t("contact.sat")}</p>
-                    <p>{t("contact.sun")}</p>
-                  </div>
-                </li>
-              </ul>
+              {/* Services */}
+              <div>
+                <h4 className="font-semibold text-lg mb-4">{t("nav.services")}</h4>
+                <ul className="space-y-2 text-sm text-white/80">
+                  {services.map((s) => (
+                    <li key={s.anchor}>
+                      <Link to={`/services${s.anchor}`} className="hover:text-secondary transition-colors">
+                        {t(s.name)}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Contact */}
+              <div>
+                <h4 className="font-semibold text-lg mb-4">{t("nav.contact")}</h4>
+                <ul className="space-y-3 text-sm text-white/80">
+                  <li className="flex items-start gap-2">
+                    <Phone className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                    <a href="tel:6042738315" className="hover:text-secondary transition-colors">604-273-8315</a>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                    <a href="https://maps.app.goo.gl/siy6NG1vN6Ckz9R9" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors">
+                      {t("contact.address")}
+                    </a>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Mail className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                    <a href="mailto:info@friendlydental.ca" className="hover:text-secondary transition-colors">info@friendlydental.ca</a>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Clock className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                    <div>
+                      <p>{t("contact.monFri")}</p>
+                      <p>{t("contact.sat")}</p>
+                      <p>{t("contact.sun")}</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
