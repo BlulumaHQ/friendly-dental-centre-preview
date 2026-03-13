@@ -29,7 +29,7 @@ const WelcomeSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
+            <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-video">
               <AnimatePresence mode="wait">
                 <motion.img
                   key={current}
