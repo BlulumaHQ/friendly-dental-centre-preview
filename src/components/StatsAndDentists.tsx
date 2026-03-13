@@ -76,25 +76,26 @@ const StatsAndDentists = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="bg-primary-foreground/10 backdrop-blur-sm rounded-xl overflow-hidden hover:bg-primary-foreground/15 transition-colors"
+              className="bg-primary-foreground/10 backdrop-blur-sm rounded-xl overflow-hidden hover:bg-primary-foreground/15 transition-colors flex flex-col"
             >
-              <div className="aspect-square overflow-hidden">
+              <div className="aspect-square overflow-hidden shrink-0">
                 <img
                   src={d.image}
                   alt={d.name}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                 />
               </div>
-              <div className="p-5">
+              <div className="p-5 flex flex-col flex-1">
                 <h3 className="text-lg font-bold text-primary-foreground">{d.name}</h3>
                 <p className="text-secondary font-semibold text-sm mb-2">{d.degree}</p>
-                <ul className="space-y-1">
+                <ul className="space-y-1 mb-3">
                   {d.credentials.map((c, j) => (
                     <li key={j} className="text-primary-foreground/70 text-xs leading-relaxed">
                       – {c}
                     </li>
                   ))}
                 </ul>
+                <p className="text-primary-foreground/80 text-xs leading-relaxed mt-auto">{d.bio}</p>
               </div>
             </motion.div>
           ))}
