@@ -85,16 +85,16 @@ const StatsAndDentists = () => {
                 />
               </div>
               <div className="p-5 flex flex-col flex-1">
-                <h3 className="text-lg font-bold text-primary-foreground">{d.name}</h3>
-                <p className="text-secondary font-semibold text-sm mb-2">{d.degree}</p>
+                <h3 className="text-xl font-bold text-primary-foreground">{d.name}</h3>
+                <p className="text-secondary font-semibold text-base mb-2">{d.degree}</p>
                 <ul className="space-y-1 mb-3">
                   {d.credentials.map((c, j) => (
-                    <li key={j} className="text-primary-foreground/70 text-xs leading-relaxed">
+                    <li key={j} className="text-primary-foreground/70 text-sm leading-relaxed">
                       – {c}
                     </li>
                   ))}
                 </ul>
-                <p className="text-primary-foreground/80 text-xs leading-relaxed mt-auto">{t(d.bioKey)}</p>
+                <p className="text-primary-foreground/80 text-base leading-relaxed mt-auto">{t(d.bioKey)}</p>
               </div>
             </motion.div>
           ))}

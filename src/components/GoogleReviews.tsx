@@ -97,15 +97,15 @@ const GoogleReviews = () => {
                         {review.name.charAt(0)}
                       </div>
                       <div>
-                        <p className="font-semibold text-foreground text-sm">{review.name}</p>
+                        <p className="font-semibold text-foreground text-base">{review.name}</p>
                         <div className="flex">
                           {[...Array(5)].map((_, i) => (
-                            <Star key={i} className="h-3 w-3 fill-yellow-400 text-yellow-400" />
+                            <Star key={i} className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />
                           ))}
                         </div>
                       </div>
                     </div>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{review.text}</p>
+                    <p className="text-muted-foreground text-base leading-relaxed">{review.text}</p>
                   </div>
                 );
               })}

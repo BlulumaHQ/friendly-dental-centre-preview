@@ -30,7 +30,7 @@ const ServicesOverview = () => {
           className="text-center mb-14"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">{t("services.title")}</h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">{t("services.subtitle")}</p>
+          <p className="text-muted-foreground max-w-xl mx-auto text-lg">{t("services.subtitle")}</p>
         </motion.div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
@@ -50,10 +50,10 @@ const ServicesOverview = () => {
                 <div className="w-20 h-20 mb-4 shrink-0">
                   <img src={s.icon} alt={t(`service.${s.key}`)} className="w-full h-full" />
                 </div>
-                <h3 className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors mb-1">
+                <h3 className="text-base font-semibold text-foreground group-hover:text-primary transition-colors mb-1">
                   {t(`service.${s.key}`)}
                 </h3>
-                <p className="text-xs text-muted-foreground leading-snug">
+                <p className="text-sm text-muted-foreground leading-snug">
                   {t(`service.${s.key}.short`)}
                 </p>
               </Link>

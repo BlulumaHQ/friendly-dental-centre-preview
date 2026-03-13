@@ -69,7 +69,7 @@ const WelcomeSection = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 leading-tight">
               {t("welcome.title")}
             </h2>
-            <p className="text-muted-foreground leading-relaxed text-base">
+            <p className="text-muted-foreground leading-relaxed text-lg">
               {t("welcome.desc")}
             </p>
           </motion.div>

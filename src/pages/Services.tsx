@@ -87,7 +87,7 @@ const Services = () => {
                   className={i % 2 !== 0 ? "lg:order-1" : ""}
                 >
                   <h2 className="text-3xl font-bold text-foreground mb-4">{t(`service.${s.key}`)}</h2>
-                  <p className="text-muted-foreground leading-relaxed">{t(`service.${s.key}.desc`)}</p>
+                  <p className="text-muted-foreground leading-relaxed text-lg">{t(`service.${s.key}.desc`)}</p>
                 </motion.div>
               </div>
             </div>
