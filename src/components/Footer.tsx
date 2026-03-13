@@ -68,7 +68,7 @@ const Footer = () => {
               {/* Links */}
               <div>
                 <h4 className="font-semibold text-lg mb-4">{t("footer.links")}</h4>
-                <ul className="space-y-2 text-sm text-white/80">
+                <ul className="space-y-2 text-base text-white/80">
                   {navItems.map((item) => (
                     <li key={item.label}>
                       <button onClick={item.action} className="hover:text-secondary transition-colors">
