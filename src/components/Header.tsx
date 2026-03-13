@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Phone, MapPin, Menu, X } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import logo from "@/assets/logo.svg";
@@ -8,15 +8,30 @@ const Header = () => {
   const { lang, setLang, t } = useLanguage();
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const navItems = [
     { path: "/", label: "nav.home" },
     { path: "/about", label: "nav.about" },
     { path: "/services", label: "nav.services" },
-    { path: "/faq", label: "nav.faq" },
   ];
 
   const isActive = (path: string) => location.pathname === path;
+
+  const handleContactClick = (e?: React.MouseEvent) => {
+    e?.preventDefault();
+    setMobileOpen(false);
+    if (location.pathname === "/") {
+      const el = document.getElementById("contact-form");
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/");
+      setTimeout(() => {
+        const el = document.getElementById("contact-form");
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 300);
+    }
+  };
 
   return (
     <>
@@ -40,10 +55,6 @@ const Header = () => {
             >
               {lang === "en" ? "中文" : "English"}
             </button>
-            <a href="tel:6042738315" className="hidden md:flex items-center gap-1.5 font-semibold">
-              <Phone className="h-3.5 w-3.5" />
-              604-273-8315
-            </a>
           </div>
         </div>
       </div>
@@ -68,29 +79,13 @@ const Header = () => {
                 {t(item.label)}
               </Link>
             ))}
-            <Link
-              to="/#contact-form"
-              onClick={(e) => {
-                e.preventDefault();
-                const el = document.getElementById("contact-form");
-                if (el) el.scrollIntoView({ behavior: "smooth" });
-                else window.location.href = "/#contact-form";
-              }}
+            <button
+              onClick={handleContactClick}
               className="text-sm font-medium transition-colors hover:text-primary text-foreground"
             >
               {t("nav.contact")}
-            </Link>
+            </button>
           </nav>
-
-          <div className="hidden lg:block">
-            <a
-              href="tel:6042738315"
-              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-primary/90 transition-colors"
-            >
-              <Phone className="h-4 w-4" />
-              604-273-8315
-            </a>
-          </div>
 
           {/* Mobile toggle */}
           <button onClick={() => setMobileOpen(!mobileOpen)} className="lg:hidden p-2">
@@ -113,22 +108,11 @@ const Header = () => {
                 </Link>
               ))}
               <button
-                onClick={() => {
-                  setMobileOpen(false);
-                  const el = document.getElementById("contact-form");
-                  if (el) el.scrollIntoView({ behavior: "smooth" });
-                }}
+                onClick={handleContactClick}
                 className="py-2 text-sm font-medium text-foreground text-left"
               >
                 {t("nav.contact")}
               </button>
-              <a
-                href="tel:6042738315"
-                className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-2.5 rounded-lg font-semibold text-sm mt-2"
-              >
-                <Phone className="h-4 w-4" />
-                604-273-8315
-              </a>
             </nav>
           </div>
         )}
