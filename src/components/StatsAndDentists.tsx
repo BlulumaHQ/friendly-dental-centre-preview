@@ -75,9 +75,9 @@ const StatsAndDentists = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="bg-primary-foreground/10 backdrop-blur-sm rounded-xl overflow-hidden hover:bg-primary-foreground/15 transition-colors flex flex-col max-w-xs mx-auto sm:max-w-none"
+              className="bg-primary-foreground/10 backdrop-blur-sm rounded-xl overflow-hidden hover:bg-primary-foreground/15 transition-colors flex flex-col max-w-[280px] mx-auto sm:max-w-none"
             >
-              <div className="aspect-[4/3] sm:aspect-square overflow-hidden shrink-0">
+              <div className="aspect-square overflow-hidden shrink-0">
                 <img
                   src={d.image}
                   alt={d.name}
