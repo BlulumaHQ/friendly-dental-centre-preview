@@ -15,8 +15,86 @@ type Section = { title: string; items: QA[] };
 
 const sections: Section[] = [
   {
-    title: "Location",
+    title: "Booking & Appointments",
     items: [
+      {
+        q: "Can I book an appointment online?",
+        a: "Yes, online booking is available. Our team will follow up to confirm your appointment and insurance details.",
+      },
+      {
+        q: "Do you accept dental emergencies?",
+        a: "Yes, we do our best to accommodate emergency visits. Please book online or call the clinic and our team will follow up as soon as possible.",
+      },
+    ],
+  },
+  {
+    title: "Insurance & Payment",
+    items: [
+      {
+        q: "Do you accept insurance?",
+        a: "Yes, we direct bill most insurance providers. Patients are responsible for any remaining balance.",
+      },
+      {
+        q: "Will I know costs before treatment?",
+        a: "Yes, estimates are provided before proceeding.",
+      },
+    ],
+  },
+  {
+    title: "CDCP Coverage",
+    items: [
+      {
+        q: "What is CDCP?",
+        a: "CDCP is a federal dental program. Patients must renew annually and coverage may not be 100%.",
+      },
+      {
+        q: "Will CDCP cover everything?",
+        a: "Not always. A co-pay may apply depending on coverage and fee guide differences.",
+      },
+      {
+        q: "Does CDCP cover all treatments?",
+        a: "No, some treatments require approval or are not fully covered.",
+      },
+      {
+        q: "How often can I come for cleaning under CDCP?",
+        a: "Coverage typically follows once per year guidelines unless additional treatment is approved.",
+      },
+      {
+        q: "How often are check-ups covered?",
+        a: "Generally once per year unless additional visits are approved.",
+      },
+      {
+        q: "Can I have more than one check-up?",
+        a: "Possible if clinically necessary and approved.",
+      },
+      { q: "Do I need to renew my CDCP every year?", a: "Yes. Annual renewal is required to maintain coverage." },
+      { q: "When should I renew?", a: "Typically around April after filing taxes and receiving your Notice of Assessment." },
+      { q: "What happens if I don't renew?", a: "Coverage may expire and you may be responsible for treatment costs." },
+      { q: "How do I renew?", a: "Online via Government of Canada or instructions in your renewal letter." },
+    ],
+  },
+  {
+    title: "Children Coverage",
+    items: [
+      { q: "Can children use other programs?", a: "Yes, programs like Healthy Kids (MSSH) may apply." },
+      { q: "Can CDCP and MSSH be combined?", a: "Sometimes, depending on eligibility." },
+      { q: "Will there be out-of-pocket costs?", a: "Possibly, depending on coverage differences." },
+      { q: "What are frequency limitations?", a: "Certain treatments are limited per period." },
+    ],
+  },
+  {
+    title: "Parking & Visit Information",
+    items: [
+      {
+        q: "Is parking available?",
+        a: (
+          <ul className="space-y-1 list-disc pl-5">
+            <li>Pay parking is available at the Richmond Curling Centre.</li>
+            <li>Street pay parking is also available nearby.</li>
+            <li>Underground pay parking (Indigo) is available in the building.</li>
+          </ul>
+        ),
+      },
       {
         q: "Where are you located?",
         a: (
@@ -33,7 +111,7 @@ const sections: Section[] = [
     ],
   },
   {
-    title: "Office Hours",
+    title: "Office Hours & Contact",
     items: [
       {
         q: "What are your hours?",
@@ -47,91 +125,14 @@ const sections: Section[] = [
           </ul>
         ),
       },
-    ],
-  },
-  {
-    title: "Parking",
-    items: [
       {
-        q: "Is parking available?",
+        q: "What is your phone number?",
         a: (
-          <ul className="space-y-1 list-disc pl-5">
-            <li>Pay parking is available at the Richmond Curling Centre.</li>
-            <li>Street pay parking is also available nearby.</li>
-            <li>Underground pay parking (Indigo) is available in the building.</li>
-          </ul>
+          <a href="tel:6042738315" className="text-primary hover:underline">
+            (604) 273-8315
+          </a>
         ),
       },
-    ],
-  },
-  {
-    title: "Contact",
-    items: [
-      { q: "What is your phone number?", a: "(604) 273-8315" },
-    ],
-  },
-  {
-    title: "Insurance & Payment",
-    items: [
-      {
-        q: "Do you accept insurance?",
-        a: "Yes, we direct bill most insurance providers. Patients are responsible for any remaining balance.",
-      },
-    ],
-  },
-  {
-    title: "CDCP (Canadian Dental Care Plan)",
-    items: [
-      {
-        q: "What is CDCP?",
-        a: "CDCP is a federal dental program. Patients must renew annually and coverage may not be 100%.",
-      },
-      {
-        q: "Will CDCP cover everything?",
-        a: "Not always. A co-pay may apply depending on coverage and fee guide differences.",
-      },
-      {
-        q: "How often can I come for cleaning under CDCP?",
-        a: "Coverage typically follows once per year guidelines unless additional treatment is approved.",
-      },
-    ],
-  },
-  {
-    title: "CDCP Renewal",
-    items: [
-      { q: "Do I need to renew my CDCP every year?", a: "Yes. Annual renewal is required to maintain coverage." },
-      { q: "When should I renew?", a: "Typically around April after filing taxes and receiving your Notice of Assessment." },
-      { q: "What happens if I don't renew?", a: "Coverage may expire and you may be responsible for treatment costs." },
-      { q: "How do I renew?", a: "Online via Government of Canada or instructions in your renewal letter." },
-    ],
-  },
-  {
-    title: "Check-up & Frequency",
-    items: [
-      { q: "How often are check-ups covered?", a: "Generally once per year unless additional visits are approved." },
-      { q: "Can I have more than one check-up?", a: "Possible if clinically necessary and approved." },
-    ],
-  },
-  {
-    title: "Children Coverage",
-    items: [
-      { q: "Can children use other programs?", a: "Yes, programs like Healthy Kids (MSSH) may apply." },
-      { q: "Can CDCP and MSSH be combined?", a: "Sometimes, depending on eligibility." },
-      { q: "Will there be out-of-pocket costs?", a: "Possibly, depending on coverage differences." },
-      { q: "What are frequency limitations?", a: "Certain treatments are limited per period." },
-    ],
-  },
-  {
-    title: "General Coverage",
-    items: [
-      { q: "Does CDCP cover all treatments?", a: "No, some treatments require approval or are not fully covered." },
-      { q: "Will I know costs before treatment?", a: "Yes, estimates are provided before proceeding." },
-    ],
-  },
-  {
-    title: "Booking",
-    items: [
-      { q: "Can I book online?", a: "Yes. Our team will confirm details after submission." },
     ],
   },
   {
@@ -156,6 +157,15 @@ const sections: Section[] = [
       {
         q: "When should I contact the clinic after treatment?",
         a: "If you experience severe pain, swelling, or prolonged bleeding, contact the clinic immediately.",
+      },
+    ],
+  },
+  {
+    title: "New Patients",
+    items: [
+      {
+        q: "Do you accept new patients?",
+        a: "Yes, we accept new patients. However, our clinic currently serves many existing patients, so appointment availability may vary. Online booking is available and our team will follow up to confirm your appointment.",
       },
     ],
   },
