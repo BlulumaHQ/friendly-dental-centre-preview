@@ -19,7 +19,16 @@ const sections: Section[] = [
     items: [
       {
         q: "Where are you located?",
-        a: "5508 Hollybridge Way, Unit 120, Richmond, BC V7C 0E2",
+        a: (
+          <a
+            href="https://maps.app.goo.gl/siy6NG1vN6Ckz9R9"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary hover:underline"
+          >
+            5508 Hollybridge Way, Unit 120, Richmond, BC V7C 0E2
+          </a>
+        ),
       },
     ],
   },

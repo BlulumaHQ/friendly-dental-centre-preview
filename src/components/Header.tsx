@@ -48,14 +48,14 @@ const Header = () => {
     <>
       {/* Top bar */}
       <div className="bg-primary text-primary-foreground">
-        <div className="container mx-auto flex items-center justify-between px-4 py-2 text-sm">
-          <div className="flex items-center gap-6 min-w-0">
-            <a href="tel:6042738315" className="flex items-center gap-2 hover:text-secondary transition-colors flex-shrink-0">
-              <Phone className="h-3.5 w-3.5" />
-              604-273-8315
+        <div className="container mx-auto flex items-center justify-between px-3 sm:px-4 py-2 text-[11px] sm:text-sm gap-2">
+          <div className="flex items-center gap-3 sm:gap-6 min-w-0 flex-1">
+            <a href="tel:6042738315" className="flex items-center gap-1 sm:gap-2 hover:text-secondary transition-colors flex-shrink-0">
+              <Phone className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
+              <span className="whitespace-nowrap">604-273-8315</span>
             </a>
             <a
-              href="https://maps.app.goo.gl/siy6NG1vN6Ckz9zR9"
+              href="https://maps.app.goo.gl/siy6NG1vN6Ckz9R9"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:flex items-center gap-2 hover:text-secondary transition-colors"
@@ -64,10 +64,15 @@ const Header = () => {
               {t("contact.address")}
             </a>
             {/* Mobile short address */}
-            <span className="sm:hidden flex items-center gap-1.5 text-xs truncate">
+            <a
+              href="https://maps.app.goo.gl/siy6NG1vN6Ckz9R9"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="sm:hidden flex items-center gap-1 min-w-0 hover:text-secondary transition-colors"
+            >
               <MapPin className="h-3 w-3 flex-shrink-0" />
-              <span className="truncate">Richmond • 5508 Hollybridge Way</span>
-            </span>
+              <span className="truncate">5508 Hollybridge Way, Richmond</span>
+            </a>
           </div>
           <div className="hidden sm:flex items-center gap-4 flex-shrink-0">
             <button

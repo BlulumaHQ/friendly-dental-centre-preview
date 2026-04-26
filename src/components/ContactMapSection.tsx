@@ -149,7 +149,14 @@ const ContactMapSection = () => {
                   <MapPin className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="font-semibold text-base text-foreground">Address</p>
-                    <p className="text-muted-foreground text-base">{t("contact.address")}</p>
+                    <a
+                      href="https://maps.app.goo.gl/siy6NG1vN6Ckz9R9"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground text-base hover:text-primary transition-colors"
+                    >
+                      {t("contact.address")}
+                    </a>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
