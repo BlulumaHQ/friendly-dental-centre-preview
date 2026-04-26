@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Phone, MapPin, Menu, X } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { BOOKING_URL } from "@/lib/booking";
 import logo from "@/assets/logo.svg";
 
 const Header = () => {
@@ -38,7 +39,8 @@ const Header = () => {
     { label: "nav.home", action: handleHomeClick },
     { label: "nav.ourOffice", action: () => scrollToSection("welcome-section") },
     { label: "nav.ourTeam", action: () => scrollToSection("our-team") },
-    { label: "nav.services", action: () => { setMobileOpen(false); navigate("/services"); } },
+    { label: "nav.services", action: () => { setMobileOpen(false); navigate("/services"); window.scrollTo({ top: 0 }); } },
+    { label: "nav.faq", action: () => { setMobileOpen(false); navigate("/faq"); window.scrollTo({ top: 0 }); } },
     { label: "nav.contact", action: () => scrollToSection("contact-form") },
   ];
 
@@ -47,17 +49,27 @@ const Header = () => {
       {/* Top bar */}
       <div className="bg-primary text-primary-foreground">
         <div className="container mx-auto flex items-center justify-between px-4 py-2 text-sm">
-          <div className="flex items-center gap-6">
-            <a href="tel:6042738315" className="flex items-center gap-2 hover:text-secondary transition-colors">
+          <div className="flex items-center gap-6 min-w-0">
+            <a href="tel:6042738315" className="flex items-center gap-2 hover:text-secondary transition-colors flex-shrink-0">
               <Phone className="h-3.5 w-3.5" />
               604-273-8315
             </a>
-            <a href="https://maps.app.goo.gl/siy6NG1vN6Ckz9zR9" target="_blank" rel="noopener noreferrer" className="hidden sm:flex items-center gap-2 hover:text-secondary transition-colors">
+            <a
+              href="https://maps.app.goo.gl/siy6NG1vN6Ckz9zR9"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:flex items-center gap-2 hover:text-secondary transition-colors"
+            >
               <MapPin className="h-3.5 w-3.5" />
               {t("contact.address")}
             </a>
+            {/* Mobile short address */}
+            <span className="sm:hidden flex items-center gap-1.5 text-xs truncate">
+              <MapPin className="h-3 w-3 flex-shrink-0" />
+              <span className="truncate">Richmond • 5508 Hollybridge Way</span>
+            </span>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 flex-shrink-0">
             <button
               onClick={() => setLang(lang === "en" ? "zh" : "en")}
               className="px-3 py-1 rounded border border-primary-foreground/30 hover:bg-primary-foreground/10 transition-colors text-xs font-medium"
@@ -86,6 +98,14 @@ const Header = () => {
                 {t(item.label)}
               </button>
             ))}
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-secondary text-secondary-foreground px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-secondary/90 transition-colors shadow-sm"
+            >
+              {t("nav.bookNow")}
+            </a>
           </nav>
 
           {/* Mobile toggle */}
@@ -107,6 +127,15 @@ const Header = () => {
                   {t(item.label)}
                 </button>
               ))}
+              <a
+                href={BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileOpen(false)}
+                className="mt-2 bg-secondary text-secondary-foreground text-center px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-secondary/90 transition-colors"
+              >
+                {t("nav.bookNow")}
+              </a>
             </nav>
           </div>
         )}
