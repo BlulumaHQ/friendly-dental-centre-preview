@@ -67,6 +67,23 @@ const FAQSection = () => {
                 </AccordionItem>
               ))}
             </Accordion>
+
+            <div className="mt-6 flex flex-wrap items-center gap-4">
+              <a
+                href={BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-secondary text-secondary-foreground px-6 py-3 rounded-lg font-semibold text-sm hover:bg-secondary/90 transition-colors shadow-md"
+              >
+                Book Online Now
+              </a>
+              <Link
+                to="/faq"
+                className="text-primary font-semibold text-sm hover:underline"
+              >
+                View all FAQs →
+              </Link>
+            </div>
           </motion.div>
         </div>
       </div>
