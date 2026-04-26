@@ -104,16 +104,16 @@ const translations: Record<string, Record<Lang, string>> = {
   
   // FAQ
   "faq.title": { en: "Frequently Asked Questions", zh: "常見問題" },
-  "faq.q1": { en: "What services do you offer?", zh: "你們提供哪些服務？" },
-  "faq.a1": { en: "We offer a comprehensive range of dental services including implants, orthodontics, pediatric dentistry, maintenance, restorative dentistry, and esthetic treatments.", zh: "我們提供全面的牙科服務，包括植牙、矯正、兒童牙科、保養、修復牙科和美容治療。" },
-  "faq.q2": { en: "Do you accept new patients?", zh: "你們接受新患者嗎？" },
-  "faq.a2": { en: "Yes! We are always welcoming new patients. Please call us or fill out the contact form to schedule your first appointment.", zh: "是的！我們隨時歡迎新患者。請致電或填寫聯繫表格預約您的第一次門診。" },
-  "faq.q3": { en: "What are your office hours?", zh: "你們的營業時間是？" },
-  "faq.a3": { en: "We are open Monday through Friday from 9:00am to 6:00pm, Saturday from 9:00am to 5:00pm, and closed on Sundays.", zh: "我們的營業時間為週一至週五9:00am到6:00pm，週六9:00am到5:00pm，週日休息。" },
-  "faq.q4": { en: "Where are you located?", zh: "你們的地址在哪裡？" },
-  "faq.a4": { en: "We are located at 120 - 5508 Hollybridge Way, Richmond, BC. We are easily accessible and have ample parking available.", zh: "我們位於 120 - 5508 Hollybridge Way, Richmond, BC。交通便利，有充足的停車位。" },
-  "faq.q5": { en: "Do you offer emergency dental services?", zh: "你們提供緊急牙科服務嗎？" },
-  "faq.a5": { en: "Yes, we do our best to accommodate dental emergencies. Please call our office immediately if you're experiencing a dental emergency.", zh: "是的，我們盡最大努力處理牙科緊急情況。如果您遇到牙科緊急情況，請立即致電我們的診所。" },
+  "faq.q1": { en: "Is parking available?", zh: "有提供停車嗎？" },
+  "faq.a1": { en: "Pay parking is available at the Richmond Curling Centre. Street pay parking is also available nearby. Underground pay parking (Indigo) is available in the building.", zh: "Richmond Curling Centre 有付費停車。附近也有街邊付費停車位。大樓內亦有 Indigo 地下付費停車場。" },
+  "faq.q2": { en: "Do you accept insurance?", zh: "你們接受保險嗎？" },
+  "faq.a2": { en: "Yes, we direct bill most insurance providers. Patients are responsible for any remaining balance.", zh: "是的，我們可以為大多數保險公司直接申報。患者需自行負擔剩餘費用。" },
+  "faq.q3": { en: "Do you accept dental emergencies?", zh: "你們接受牙科急診嗎？" },
+  "faq.a3": { en: "Yes, we do our best to accommodate emergency visits. Please book online or call the clinic and our team will follow up as soon as possible.", zh: "是的，我們會盡力安排急診門診。請線上預約或致電診所，我們的團隊會盡快跟進。" },
+  "faq.q4": { en: "Will CDCP cover everything?", zh: "CDCP 會涵蓋全部費用嗎？" },
+  "faq.a4": { en: "Not always. A co-pay may apply depending on your coverage and fee guide differences.", zh: "不一定。根據您的承保範圍和收費標準差異，可能需要支付共付額。" },
+  "faq.q5": { en: "Can I book an appointment online?", zh: "可以線上預約嗎？" },
+  "faq.a5": { en: "Yes, online booking is available. Our team will follow up to confirm your appointment and insurance details.", zh: "可以，提供線上預約。我們的團隊會跟進確認您的預約和保險資訊。" },
 
   // Footer
   "footer.visitVancouver": { en: "We also welcome patients at our Vancouver clinic, Little Mountain Dental Centre.", zh: "我們也歡迎患者到我們的溫哥華診所 Little Mountain Dental Centre 就診。" },
