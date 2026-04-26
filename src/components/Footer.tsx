@@ -45,6 +45,7 @@ const Footer = () => {
     { label: "nav.ourOffice", action: () => scrollToSection("welcome-section") },
     { label: "nav.ourTeam", action: () => scrollToSection("our-team") },
     { label: "nav.services", action: () => navigate("/services") },
+    { label: "nav.faq", action: () => navigate("/faq") },
     { label: "nav.contact", action: () => scrollToSection("contact-form") },
   ];
 
