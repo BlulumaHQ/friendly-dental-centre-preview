@@ -69,7 +69,7 @@ const Header = () => {
               <span className="truncate">Richmond • 5508 Hollybridge Way</span>
             </span>
           </div>
-          <div className="flex items-center gap-4 flex-shrink-0">
+          <div className="hidden sm:flex items-center gap-4 flex-shrink-0">
             <button
               onClick={() => setLang(lang === "en" ? "zh" : "en")}
               className="px-3 py-1 rounded border border-primary-foreground/30 hover:bg-primary-foreground/10 transition-colors text-xs font-medium"
@@ -108,10 +108,19 @@ const Header = () => {
             </a>
           </nav>
 
-          {/* Mobile toggle */}
-          <button onClick={() => setMobileOpen(!mobileOpen)} className="lg:hidden p-2">
-            {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
+          {/* Mobile controls: language switcher + menu toggle */}
+          <div className="lg:hidden flex items-center gap-2">
+            <button
+              onClick={() => setLang(lang === "en" ? "zh" : "en")}
+              className="px-2.5 py-1 rounded border border-border hover:bg-muted transition-colors text-xs font-medium text-foreground"
+              aria-label="Toggle language"
+            >
+              {lang === "en" ? "中文" : "EN"}
+            </button>
+            <button onClick={() => setMobileOpen(!mobileOpen)} className="p-2" aria-label="Toggle menu">
+              {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile menu */}
