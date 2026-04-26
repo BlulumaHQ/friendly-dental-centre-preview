@@ -51,42 +51,54 @@ const Footer = () => {
 
   return (
     <footer style={{ backgroundColor: "#336799" }} className="text-white">
-      {/* Mobile condensed footer (2-column) */}
+      {/* Mobile compact footer (all content preserved, just denser) */}
       <div className="lg:hidden container mx-auto px-4 py-8">
-        <img src={footerLogo} alt="Friendly Dental Centre" className="h-10 mb-5" />
-        <div className="grid grid-cols-2 gap-x-6 gap-y-4 text-sm">
-          {/* Left column */}
+        <img src={footerLogo} alt="Friendly Dental Centre" className="h-10 mb-3" />
+        <p className="text-xs text-white/70 mb-5 leading-relaxed">
+          {lang === "en"
+            ? <>We also welcome patients at our Vancouver clinic, <a href="https://littlemountaindental.ca/" target="_blank" rel="noopener noreferrer" className="underline hover:text-secondary transition-colors">Little Mountain Dental Centre</a>.</>
+            : <>我們也歡迎患者到我們的溫哥華診所 <a href="https://littlemountaindental.ca/" target="_blank" rel="noopener noreferrer" className="underline hover:text-secondary transition-colors">Little Mountain Dental Centre</a> 就診。</>
+          }
+        </p>
+
+        <div className="grid grid-cols-2 gap-x-6 gap-y-5 text-xs">
+          {/* Links */}
           <div>
-            <h4 className="font-semibold text-white mb-2">{t("footer.links")}</h4>
+            <h4 className="font-semibold text-white mb-2 text-sm">{t("footer.links")}</h4>
             <ul className="space-y-1.5 text-white/80">
-              <li>
-                <button onClick={handleHomeClick} className="hover:text-secondary transition-colors text-left">
-                  {t("nav.menu")}
-                </button>
-              </li>
-              <li>
-                <button onClick={() => navigate("/faq")} className="hover:text-secondary transition-colors text-left">
-                  {t("nav.faq")}
-                </button>
-              </li>
-              <li>
-                <a
-                  href={BOOKING_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-secondary transition-colors"
-                >
-                  {t("nav.bookNow")}
-                </a>
-              </li>
+              {navItems.map((item) => (
+                <li key={item.label}>
+                  <button onClick={item.action} className="hover:text-secondary transition-colors text-left">
+                    {t(item.label)}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Right column */}
+          {/* Services */}
           <div>
-            <h4 className="font-semibold text-white mb-2">{t("nav.contact")}</h4>
+            <h4 className="font-semibold text-white mb-2 text-sm">{t("nav.services")}</h4>
             <ul className="space-y-1.5 text-white/80">
-              <li className="flex items-start gap-1.5">
+              {services.map((s) => (
+                <li key={s.anchor}>
+                  <Link to={`/services${s.anchor}`} className="hover:text-secondary transition-colors">
+                    {t(s.name)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact (full width) */}
+          <div className="col-span-2">
+            <h4 className="font-semibold text-white mb-2 text-sm">{t("nav.contact")}</h4>
+            <ul className="space-y-2 text-white/80">
+              <li className="flex items-start gap-2">
+                <Phone className="h-3.5 w-3.5 mt-0.5 flex-shrink-0" />
+                <a href="tel:6042738315" className="hover:text-secondary transition-colors">604-273-8315</a>
+              </li>
+              <li className="flex items-start gap-2">
                 <MapPin className="h-3.5 w-3.5 mt-0.5 flex-shrink-0" />
                 <a
                   href="https://maps.app.goo.gl/siy6NG1vN6Ckz9R9"
@@ -94,18 +106,20 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="hover:text-secondary transition-colors"
                 >
-                  Richmond • 5508 Hollybridge Way
+                  {t("contact.address")}
                 </a>
               </li>
-              <li className="flex items-start gap-1.5">
+              <li className="flex items-start gap-2">
+                <Mail className="h-3.5 w-3.5 mt-0.5 flex-shrink-0" />
+                <a href="mailto:info@friendlydental.ca" className="hover:text-secondary transition-colors">info@friendlydental.ca</a>
+              </li>
+              <li className="flex items-start gap-2">
                 <Clock className="h-3.5 w-3.5 mt-0.5 flex-shrink-0" />
-                <span>Mon–Sat 9am–6pm</span>
-              </li>
-              <li className="flex items-start gap-1.5">
-                <Phone className="h-3.5 w-3.5 mt-0.5 flex-shrink-0" />
-                <a href="tel:6042738315" className="hover:text-secondary transition-colors">
-                  604-273-8315
-                </a>
+                <div className="leading-relaxed">
+                  <p>{t("contact.monFri")}</p>
+                  <p>{t("contact.sat")}</p>
+                  <p>{t("contact.sun")}</p>
+                </div>
               </li>
             </ul>
           </div>
