@@ -2,16 +2,12 @@ import { motion } from "framer-motion";
 import { Phone } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { BOOKING_URL } from "@/lib/booking";
 import heroMobileFallback from "@/assets/hero-mobile-fallback.jpg";
 
 const HeroSection = () => {
   const { t } = useLanguage();
   const isMobile = useIsMobile();
-
-  const scrollToContact = () => {
-    const el = document.getElementById("contact-form");
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <section className="relative min-h-[85vh] flex items-center overflow-hidden">
@@ -74,12 +70,14 @@ const HeroSection = () => {
             transition={{ delay: 0.8 }}
             className="flex flex-wrap gap-4"
           >
-            <button
-              onClick={scrollToContact}
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-secondary text-secondary-foreground px-8 py-3.5 rounded-lg font-semibold text-sm hover:bg-secondary/90 transition-colors shadow-lg"
             >
               {t("hero.cta")}
-            </button>
+            </a>
             <a
               href="tel:6042738315"
               className="flex items-center gap-2 border-2 border-primary-foreground/30 text-primary-foreground px-8 py-3.5 rounded-lg font-semibold text-sm hover:bg-primary-foreground/10 transition-colors"
