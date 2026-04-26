@@ -15,14 +15,17 @@ const translations: Record<string, Record<Lang, string>> = {
   "nav.ourTeam": { en: "Our Team", zh: "我們的團隊" },
   "nav.services": { en: "Our Services", zh: "服務項目" },
   "nav.contact": { en: "Contact", zh: "聯繫我們" },
-  "nav.bookNow": { en: "Book Now", zh: "立即預約" },
+  "nav.bookNow": { en: "Book Appointment", zh: "立即預約" },
+  "nav.faq": { en: "FAQ", zh: "常見問題" },
+  "nav.menu": { en: "Menu", zh: "選單" },
+  "cta.bookOnline": { en: "Book Online Now", zh: "線上預約" },
   
   // Hero
   "hero.subtitle": { en: "RICHMOND DENTAL PROFESSIONALS", zh: "列治文專業牙科" },
   "hero.title1": { en: "Welcome to", zh: "歡迎來到" },
   "hero.title2": { en: "Friendly Dental Centre", zh: "Friendly Dental Centre" },
   "hero.desc": { en: "Your trusted dental care partner in Richmond. Experience personalized, gentle dentistry in a warm and welcoming environment.", zh: "您在列治文值得信賴的牙科護理夥伴。在溫馨的環境中體驗個性化、溫和的牙科治療。" },
-  "hero.cta": { en: "Book Your Appointment", zh: "預約您的門診" },
+  "hero.cta": { en: "Book Appointment", zh: "立即預約" },
   "hero.call": { en: "Call Us", zh: "致電我們" },
   
   // Welcome
