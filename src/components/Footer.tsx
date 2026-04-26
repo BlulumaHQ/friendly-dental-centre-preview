@@ -1,6 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Phone, MapPin, Mail, Clock } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { BOOKING_URL } from "@/lib/booking";
 import footerLogo from "@/assets/footer-logo.svg";
 import drwuLogo from "@/assets/drwu-logo.png";
 
@@ -49,7 +50,69 @@ const Footer = () => {
 
   return (
     <footer style={{ backgroundColor: "#336799" }} className="text-white">
-      <div className="container mx-auto px-4 py-16">
+      {/* Mobile condensed footer (2-column) */}
+      <div className="lg:hidden container mx-auto px-4 py-8">
+        <img src={footerLogo} alt="Friendly Dental Centre" className="h-10 mb-5" />
+        <div className="grid grid-cols-2 gap-x-6 gap-y-4 text-sm">
+          {/* Left column */}
+          <div>
+            <h4 className="font-semibold text-white mb-2">{t("footer.links")}</h4>
+            <ul className="space-y-1.5 text-white/80">
+              <li>
+                <button onClick={handleHomeClick} className="hover:text-secondary transition-colors text-left">
+                  {t("nav.menu")}
+                </button>
+              </li>
+              <li>
+                <button onClick={() => navigate("/faq")} className="hover:text-secondary transition-colors text-left">
+                  {t("nav.faq")}
+                </button>
+              </li>
+              <li>
+                <a
+                  href={BOOKING_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-secondary transition-colors"
+                >
+                  {t("nav.bookNow")}
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Right column */}
+          <div>
+            <h4 className="font-semibold text-white mb-2">{t("nav.contact")}</h4>
+            <ul className="space-y-1.5 text-white/80">
+              <li className="flex items-start gap-1.5">
+                <MapPin className="h-3.5 w-3.5 mt-0.5 flex-shrink-0" />
+                <a
+                  href="https://maps.app.goo.gl/siy6NG1vN6Ckz9R9"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-secondary transition-colors"
+                >
+                  Richmond • 5508 Hollybridge Way
+                </a>
+              </li>
+              <li className="flex items-start gap-1.5">
+                <Clock className="h-3.5 w-3.5 mt-0.5 flex-shrink-0" />
+                <span>Mon–Sat 9am–6pm</span>
+              </li>
+              <li className="flex items-start gap-1.5">
+                <Phone className="h-3.5 w-3.5 mt-0.5 flex-shrink-0" />
+                <a href="tel:6042738315" className="hover:text-secondary transition-colors">
+                  604-273-8315
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Desktop footer (unchanged 5-column grid) */}
+      <div className="hidden lg:block container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-[3fr_4fr_4fr_4fr_3fr] gap-8 lg:gap-0">
           {/* Column 1: Logo */}
           <div>
