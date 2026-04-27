@@ -18,12 +18,25 @@ const sections: Section[] = [
     title: "Booking & Appointments",
     items: [
       {
-        q: "Can I book an appointment online?",
-        a: "Yes, online booking is available. Our team will follow up to confirm your appointment and insurance details.",
+        q: "How do I book an appointment?",
+        a: (
+          <>
+            You can book online anytime through our{" "}
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:underline"
+            >
+              online booking system
+            </a>
+            . Our team will follow up to confirm your appointment, insurance, and any additional details.
+          </>
+        ),
       },
       {
         q: "Do you accept dental emergencies?",
-        a: "Yes, we do our best to accommodate emergency visits. Please book online or call the clinic and our team will follow up as soon as possible.",
+        a: "Yes. Please book online or call the clinic and our team will follow up as soon as possible to accommodate your emergency visit.",
       },
     ],
   },
@@ -31,70 +44,69 @@ const sections: Section[] = [
     title: "Insurance & Payment",
     items: [
       {
-        q: "Do you accept insurance?",
-        a: "Yes, we direct bill most insurance providers. Patients are responsible for any remaining balance.",
+        q: "Do you accept insurance and offer direct billing?",
+        a: "Yes, we direct bill most insurance providers on your behalf. Patients are responsible for any remaining balance not covered by their plan.",
       },
       {
         q: "Will I know costs before treatment?",
-        a: "Yes, estimates are provided before proceeding.",
+        a: "Yes. We provide clear estimates before proceeding with any treatment.",
       },
     ],
   },
   {
-    title: "CDCP Coverage",
+    title: "CDCP & Government Programs",
     items: [
       {
-        q: "What is CDCP?",
-        a: "CDCP is a federal dental program. Patients must renew annually and coverage may not be 100%.",
+        q: "What is CDCP and will it cover everything?",
+        a: "CDCP is a federal dental program. Coverage is not always 100% — a co-pay may apply depending on your plan and the provincial fee guide. Some treatments require pre-approval.",
       },
       {
-        q: "Will CDCP cover everything?",
-        a: "Not always. A co-pay may apply depending on coverage and fee guide differences.",
+        q: "How often does CDCP cover cleanings and check-ups?",
+        a: "Generally once per year, unless additional treatment is clinically necessary and approved.",
       },
       {
-        q: "Does CDCP cover all treatments?",
-        a: "No, some treatments require approval or are not fully covered.",
+        q: "Do I need to renew CDCP every year?",
+        a: "Yes. Annual renewal is required, typically around April after filing your taxes and receiving your Notice of Assessment. Renew online via the Government of Canada website.",
       },
       {
-        q: "How often can I come for cleaning under CDCP?",
-        a: "Coverage typically follows once per year guidelines unless additional treatment is approved.",
+        q: "Are there other programs for children?",
+        a: "Yes, programs such as Healthy Kids (MSSH) may apply and can sometimes be combined with CDCP, depending on eligibility. Out-of-pocket costs may still apply.",
       },
-      {
-        q: "How often are check-ups covered?",
-        a: "Generally once per year unless additional visits are approved.",
-      },
-      {
-        q: "Can I have more than one check-up?",
-        a: "Possible if clinically necessary and approved.",
-      },
-      { q: "Do I need to renew my CDCP every year?", a: "Yes. Annual renewal is required to maintain coverage." },
-      { q: "When should I renew?", a: "Typically around April after filing taxes and receiving your Notice of Assessment." },
-      { q: "What happens if I don't renew?", a: "Coverage may expire and you may be responsible for treatment costs." },
-      { q: "How do I renew?", a: "Online via Government of Canada or instructions in your renewal letter." },
     ],
   },
   {
-    title: "Children Coverage",
+    title: "Appointment Policies",
     items: [
-      { q: "Can children use other programs?", a: "Yes, programs like Healthy Kids (MSSH) may apply." },
-      { q: "Can CDCP and MSSH be combined?", a: "Sometimes, depending on eligibility." },
-      { q: "Will there be out-of-pocket costs?", a: "Possibly, depending on coverage differences." },
-      { q: "What are frequency limitations?", a: "Certain treatments are limited per period." },
+      {
+        q: "What is your cancellation and no-show policy?",
+        a: "We kindly ask for at least 48 hours' notice to cancel or reschedule. Missed appointments or late cancellations are subject to a $75 no-show fee.",
+      },
     ],
   },
   {
-    title: "Parking & Visit Information",
+    title: "Visit Preparation & Experience",
     items: [
       {
-        q: "Is parking available?",
-        a: (
-          <ul className="space-y-1 list-disc pl-5">
-            <li>Pay parking is available at the Richmond Curling Centre.</li>
-            <li>Street pay parking is also available nearby.</li>
-            <li>Underground pay parking (Indigo) is available in the building.</li>
-          </ul>
-        ),
+        q: "How long will my appointment take?",
+        a: "Cleanings and check-ups typically take 45–60 minutes. Treatment appointments vary depending on the procedure — our team will let you know in advance.",
       },
+      {
+        q: "What happens during a check-up?",
+        a: "The dentist performs a thorough oral exam, reviews any X-rays, screens for cavities and gum disease, and discusses recommended treatment if needed.",
+      },
+      {
+        q: "Will I receive an appointment reminder?",
+        a: "Yes, you will receive a confirmation and reminder before your visit by email or text.",
+      },
+      {
+        q: "Do I need to fill out forms or update my medical history?",
+        a: "New patients will be asked to complete a medical history form. Existing patients should let us know about any changes to medications, health conditions, or insurance at each visit.",
+      },
+    ],
+  },
+  {
+    title: "Parking & Clinic Info",
+    items: [
       {
         q: "Where are you located?",
         a: (
@@ -108,11 +120,16 @@ const sections: Section[] = [
           </a>
         ),
       },
-    ],
-  },
-  {
-    title: "Office Hours & Contact",
-    items: [
+      {
+        q: "Is parking available?",
+        a: (
+          <ul className="space-y-1 list-disc pl-5">
+            <li>Pay parking at the Richmond Curling Centre.</li>
+            <li>Street pay parking nearby.</li>
+            <li>Underground pay parking (Indigo) in the building.</li>
+          </ul>
+        ),
+      },
       {
         q: "What are your hours?",
         a: (
@@ -126,7 +143,7 @@ const sections: Section[] = [
         ),
       },
       {
-        q: "What is your phone number?",
+        q: "How do I contact the clinic?",
         a: (
           <a href="tel:6042738315" className="text-primary hover:underline">
             (604) 273-8315
@@ -140,15 +157,11 @@ const sections: Section[] = [
     items: [
       {
         q: "What should I do after a dental cleaning?",
-        a: "Avoid eating for at least 30 minutes if fluoride treatment was applied. Maintain regular brushing and flossing.",
+        a: "Avoid eating for at least 30 minutes if fluoride was applied. Continue regular brushing and flossing.",
       },
       {
         q: "What should I do after a filling?",
         a: "Avoid chewing on the treated side until numbness wears off. Mild sensitivity is normal.",
-      },
-      {
-        q: "Is sensitivity normal after treatment?",
-        a: "Yes, temporary sensitivity to hot or cold is common and usually resolves within a few days.",
       },
       {
         q: "What should I do after a tooth extraction?",
@@ -164,8 +177,8 @@ const sections: Section[] = [
     title: "New Patients",
     items: [
       {
-        q: "Do you accept new patients?",
-        a: "Yes, we accept new patients. However, our clinic currently serves many existing patients, so appointment availability may vary. Online booking is available and our team will follow up to confirm your appointment.",
+        q: "Are you accepting new patients?",
+        a: "Yes, we welcome new patients. However, the clinic is currently serving many existing patients, so availability may vary.",
       },
     ],
   },
