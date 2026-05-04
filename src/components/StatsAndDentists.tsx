@@ -4,6 +4,7 @@ import dentistWu from "@/assets/dentist-wu.jpg";
 import dentistPan from "@/assets/dentist-pan.jpg";
 import dentistLin from "@/assets/dentist-lin.jpg";
 import dentistChen from "@/assets/dentist-chen.jpg";
+import dentistWong from "@/assets/dentist-wong.jpg";
 
 const dentists = [
   {
@@ -50,6 +51,17 @@ const dentists = [
     ],
     bioKey: "dentist.chen.bio",
   },
+  {
+    name: "Dr. Christina Wong",
+    degree: "D.D.S.",
+    image: dentistWong,
+    credentials: [
+      "University of Alberta, Faculty of Dentistry, 1993",
+      "Fellow, International Congress of Oral Implantologists",
+      "Associate Fellow, American Academy of Implant Dentistry",
+    ],
+    bioKey: "dentist.wong.bio",
+  },
 ];
 
 const StatsAndDentists = () => {
@@ -67,7 +79,7 @@ const StatsAndDentists = () => {
           {t("stats.meetTeam")}
         </motion.h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {dentists.map((d, i) => (
             <motion.div
               key={d.name}
@@ -94,7 +106,7 @@ const StatsAndDentists = () => {
                     </li>
                   ))}
                 </ul>
-                <p className="text-primary-foreground/80 text-base leading-relaxed mt-auto">{t(d.bioKey)}</p>
+                <p className="text-primary-foreground/80 text-[16px] leading-[1.6] md:text-base md:leading-relaxed mt-auto">{t(d.bioKey)}</p>
               </div>
             </motion.div>
           ))}

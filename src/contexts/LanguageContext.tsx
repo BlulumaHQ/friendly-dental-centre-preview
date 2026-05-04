@@ -82,6 +82,10 @@ const translations: Record<string, Record<Lang, string>> = {
     en: "Dr. Jie Chen is an experienced prosthodontist specializing in cosmetic dentistry and complex restorative treatments. Her expertise includes dentures, implant restorations, and full-mouth rehabilitation. Dr. Chen is known for her meticulous work and gentle care, helping patients restore both their smiles and confidence.",
     zh: "Dr. Jie Chen 是一位經驗豐富的修復牙科專家，專精於美容牙科和複雜修復治療。她的專業領域包括假牙、植牙修復和全口重建。Dr. Chen 以其精細的工作和溫和的護理而聞名，幫助患者恢復笑容和自信。"
   },
+  "dentist.wong.bio": {
+    en: "Dr. Christina Wong earned her Doctor of Dental Surgery degree from the University of Alberta. With decades of clinical experience, she is committed to providing comprehensive dental care in a comfortable and patient-focused environment. Dr. Wong has pursued extensive continuing education, including advanced training at the Kois Center and the Misch International Implant Institute. Her professional interests include implant dentistry, restorative treatments, and preventive care for patients of all ages.",
+    zh: "Dr. Christina Wong 於 University of Alberta 獲得牙科博士學位。擁有數十年的臨床經驗，她致力於在舒適且以患者為中心的環境中提供全面的牙科護理。Dr. Wong 持續進修，包括在 Kois Center 和 Misch International Implant Institute 接受高階培訓。她的專業興趣包括植牙、修復治療以及各年齡層患者的預防性護理。"
+  },
 
   // Google Reviews
   "reviews.average": { en: "4.9 Average Rating", zh: "4.9 平均評分" },
