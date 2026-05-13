@@ -236,9 +236,9 @@ const getSections = (lang: "en" | "zh"): Section[] => {
 };
 
 const FAQ = () => {
-  const { language } = useLanguage();
-  const isZh = language === "zh";
-  const sections = getSections(language);
+  const { lang } = useLanguage();
+  const isZh = lang === "zh";
+  const sections = getSections(lang);
 
   return (
     <div className="min-h-screen flex flex-col">
