@@ -108,6 +108,7 @@ const translations: Record<string, Record<Lang, string>> = {
   
   // FAQ
   "faq.title": { en: "Frequently Asked Questions", zh: "常見問題" },
+  "faq.viewFull": { en: "View Full FAQ", zh: "查看完整常見問題" },
   "faq.q1": { en: "Is parking available?", zh: "有提供停車嗎？" },
   "faq.a1": { en: "Pay parking is available at the Richmond Curling Centre. Street pay parking is also available nearby. Underground pay parking (Indigo) is available in the building.", zh: "Richmond Curling Centre 有付費停車。附近也有街邊付費停車位。大樓內亦有 Indigo 地下付費停車場。" },
   "faq.q2": { en: "Do you accept insurance?", zh: "你們接受保險嗎？" },
