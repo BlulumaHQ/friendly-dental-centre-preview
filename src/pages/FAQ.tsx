@@ -87,8 +87,8 @@ const getSections = (lang: "en" | "zh"): Section[] => {
         {
           q: isZh ? "CDCP 多久涵蓋一次洗牙與檢查？" : "How often does CDCP cover cleanings and check-ups?",
           a: isZh
-            ? "通常每年一次，除非臨床上需要額外治療並獲批准。"
-            : "Generally once per year, unless additional treatment is clinically necessary and approved.",
+            ? "通常每 12 個滾動月一次，除非臨床上需要額外治療並獲批准。"
+            : "Generally once every 12 rolling months, unless additional treatment is clinically necessary and approved.",
         },
         {
           q: isZh ? "CDCP 需要每年續期嗎？" : "Do I need to renew CDCP every year?",

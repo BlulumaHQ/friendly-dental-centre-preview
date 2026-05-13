@@ -22,7 +22,7 @@ const FAQSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="py-20 bg-section-light">
+    <section id="faq" className="py-20 bg-section-light">
       <div className="container mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
