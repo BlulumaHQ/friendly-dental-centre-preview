@@ -115,15 +115,24 @@ const Footer = () => {
               </li>
               <li className="flex items-start gap-2">
                 <Clock className="h-3.5 w-3.5 mt-0.5 flex-shrink-0" />
-                <div className="leading-relaxed">
-                  <p>{t("contact.hours.mon")}</p>
-                  <p>{t("contact.hours.tue")}</p>
-                  <p>{t("contact.hours.wed")}</p>
-                  <p>{t("contact.hours.thu")}</p>
-                  <p>{t("contact.hours.fri")}</p>
-                  <p>{t("contact.hours.sat")}</p>
-                  <p>{t("contact.hours.sun")}</p>
-                  <p className="text-white/60 text-xs mt-1">{t("contact.hours.holiday")}</p>
+                <div className="leading-relaxed flex-1">
+                  <dl className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-0.5">
+                    {[
+                      ["contact.day.mon", "9AM–6PM"],
+                      ["contact.day.tue", "9AM–6PM"],
+                      ["contact.day.wed", "9AM–5PM"],
+                      ["contact.day.thu", "9AM–5PM"],
+                      ["contact.day.fri", "9AM–6PM"],
+                      ["contact.day.sat", "9AM–5PM"],
+                      ["contact.day.sun", t("contact.day.closed")],
+                    ].map(([k, v]) => (
+                      <>
+                        <dt className="text-white/70">{t(k)}</dt>
+                        <dd className="text-white/90 tabular-nums">{v}</dd>
+                      </>
+                    ))}
+                  </dl>
+                  <p className="text-white/60 text-[11px] mt-1.5">{t("contact.hours.holiday")}</p>
                 </div>
               </li>
             </ul>
