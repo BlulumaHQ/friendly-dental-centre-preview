@@ -22,7 +22,7 @@ const FAQSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="faq" className="py-20 bg-section-light">
+    <section id="faq" className="py-14 md:py-16 bg-section-light">
       <div className="container mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -55,13 +55,13 @@ const FAQSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <Accordion type="single" collapsible defaultValue="faq-0" className="space-y-3">
+            <Accordion type="single" collapsible defaultValue="faq-0" className="space-y-2">
               {faqKeys.map((faq, i) => (
-                <AccordionItem key={i} value={`faq-${i}`} className="border border-border rounded-lg px-5 bg-background">
-                  <AccordionTrigger className="text-foreground font-semibold text-base text-left hover:no-underline">
+                <AccordionItem key={i} value={`faq-${i}`} className="border border-border rounded-lg px-5 bg-background transition-colors hover:border-primary/40">
+                  <AccordionTrigger className="text-foreground font-semibold text-base text-left hover:no-underline py-4">
                     {t(faq.q)}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground leading-relaxed text-base">
+                  <AccordionContent className="text-muted-foreground leading-relaxed text-[15px] md:text-base whitespace-pre-line">
                     {t(faq.a)}
                   </AccordionContent>
                 </AccordionItem>
