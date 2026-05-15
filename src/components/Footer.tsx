@@ -115,15 +115,24 @@ const Footer = () => {
               </li>
               <li className="flex items-start gap-2">
                 <Clock className="h-3.5 w-3.5 mt-0.5 flex-shrink-0" />
-                <div className="leading-relaxed">
-                  <p>{t("contact.hours.mon")}</p>
-                  <p>{t("contact.hours.tue")}</p>
-                  <p>{t("contact.hours.wed")}</p>
-                  <p>{t("contact.hours.thu")}</p>
-                  <p>{t("contact.hours.fri")}</p>
-                  <p>{t("contact.hours.sat")}</p>
-                  <p>{t("contact.hours.sun")}</p>
-                  <p className="text-white/60 text-xs mt-1">{t("contact.hours.holiday")}</p>
+                <div className="leading-relaxed flex-1">
+                  <dl className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-0.5">
+                    {[
+                      ["contact.day.mon", "9AM–6PM"],
+                      ["contact.day.tue", "9AM–6PM"],
+                      ["contact.day.wed", "9AM–5PM"],
+                      ["contact.day.thu", "9AM–5PM"],
+                      ["contact.day.fri", "9AM–6PM"],
+                      ["contact.day.sat", "9AM–5PM"],
+                      ["contact.day.sun", t("contact.day.closed")],
+                    ].map(([k, v]) => (
+                      <div key={k} className="contents">
+                        <dt className="text-white/70">{t(k)}</dt>
+                        <dd className="text-white/90 tabular-nums">{v}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                  <p className="text-white/60 text-[11px] mt-1.5">{t("contact.hours.holiday")}</p>
                 </div>
               </li>
             </ul>
@@ -131,9 +140,9 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Desktop footer (unchanged 5-column grid) */}
+      {/* Desktop footer */}
       <div className="hidden lg:block container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-[3fr_4fr_4fr_4fr_3fr] gap-8 lg:gap-0">
+        <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr_3fr_3fr_3.5fr_3.5fr] gap-8 lg:gap-10">
           {/* Column 1: Logo */}
           <div>
             <img src={footerLogo} alt="Friendly Dental Centre" className="h-12 mb-4" />
@@ -179,35 +188,47 @@ const Footer = () => {
           {/* Column 5: Contact */}
           <div>
             <h4 className="font-semibold text-lg mb-4">{t("nav.contact")}</h4>
-            <ul className="space-y-3 text-base text-white/80 whitespace-nowrap">
+            <ul className="space-y-3 text-base text-white/80">
               <li className="flex items-start gap-2">
-                <Phone className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                <Phone className="h-4 w-4 mt-1 flex-shrink-0" />
                 <a href="tel:6042738315" className="hover:text-secondary transition-colors">604-273-8315</a>
               </li>
               <li className="flex items-start gap-2">
-                <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                <a href="https://maps.app.goo.gl/siy6NG1vN6Ckz9R9" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors">
+                <MapPin className="h-4 w-4 mt-1 flex-shrink-0" />
+                <a href="https://maps.app.goo.gl/siy6NG1vN6Ckz9R9" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors leading-snug">
                   {t("contact.address")}
                 </a>
               </li>
               <li className="flex items-start gap-2">
-                <Mail className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                <a href="mailto:info@friendlydental.ca" className="hover:text-secondary transition-colors">info@friendlydental.ca</a>
-              </li>
-              <li className="flex items-start gap-2">
-                <Clock className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                <div>
-                  <p>{t("contact.hours.mon")}</p>
-                  <p>{t("contact.hours.tue")}</p>
-                  <p>{t("contact.hours.wed")}</p>
-                  <p>{t("contact.hours.thu")}</p>
-                  <p>{t("contact.hours.fri")}</p>
-                  <p>{t("contact.hours.sat")}</p>
-                  <p>{t("contact.hours.sun")}</p>
-                  <p className="text-white/60 text-xs mt-1">{t("contact.hours.holiday")}</p>
-                </div>
+                <Mail className="h-4 w-4 mt-1 flex-shrink-0" />
+                <a href="mailto:info@friendlydental.ca" className="hover:text-secondary transition-colors break-all">info@friendlydental.ca</a>
               </li>
             </ul>
+          </div>
+
+          {/* Column 6: Hours */}
+          <div>
+            <h4 className="font-semibold text-lg mb-4 flex items-center gap-2">
+              <Clock className="h-4 w-4" />
+              {t("contact.hours")}
+            </h4>
+            <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1.5 text-base text-white/80">
+              {[
+                ["contact.day.mon", "9AM–6PM"],
+                ["contact.day.tue", "9AM–6PM"],
+                ["contact.day.wed", "9AM–5PM"],
+                ["contact.day.thu", "9AM–5PM"],
+                ["contact.day.fri", "9AM–6PM"],
+                ["contact.day.sat", "9AM–5PM"],
+                ["contact.day.sun", t("contact.day.closed")],
+              ].map(([k, v]) => (
+                <div key={k} className="contents">
+                  <dt className="text-white/70">{t(k)}</dt>
+                  <dd className="text-white/90 tabular-nums">{v}</dd>
+                </div>
+              ))}
+            </dl>
+            <p className="text-white/60 text-xs mt-3 italic">{t("contact.hours.holiday")}</p>
           </div>
         </div>
       </div>

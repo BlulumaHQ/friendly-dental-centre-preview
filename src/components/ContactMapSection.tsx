@@ -143,17 +143,18 @@ const ContactMapSection = () => {
               />
             </div>
 
-            <div className="bg-background rounded-2xl shadow-lg p-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="bg-background rounded-2xl shadow-lg p-6 space-y-5">
+              {/* Top row: Address / Phone / Email */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div className="flex items-start gap-3">
                   <MapPin className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-semibold text-base text-foreground">Address</p>
+                  <div className="min-w-0">
+                    <p className="font-semibold text-sm text-foreground mb-0.5">Address</p>
                     <a
                       href="https://maps.app.goo.gl/siy6NG1vN6Ckz9R9"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-muted-foreground text-base hover:text-primary transition-colors"
+                      className="text-muted-foreground text-sm hover:text-primary transition-colors leading-snug block"
                     >
                       {t("contact.address")}
                     </a>
@@ -161,32 +162,43 @@ const ContactMapSection = () => {
                 </div>
                 <div className="flex items-start gap-3">
                   <Phone className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-semibold text-base text-foreground">Phone</p>
-                    <a href="tel:6042738315" className="text-muted-foreground text-base hover:text-primary transition-colors">604-273-8315</a>
+                  <div className="min-w-0">
+                    <p className="font-semibold text-sm text-foreground mb-0.5">Phone</p>
+                    <a href="tel:6042738315" className="text-muted-foreground text-sm hover:text-primary transition-colors">604-273-8315</a>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <Mail className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-semibold text-base text-foreground">Email</p>
-                    <a href="mailto:info@friendlydental.ca" className="text-muted-foreground text-base hover:text-primary transition-colors">info@friendlydental.ca</a>
+                  <div className="min-w-0">
+                    <p className="font-semibold text-sm text-foreground mb-0.5">Email</p>
+                    <a href="mailto:info@friendlydental.ca" className="text-muted-foreground text-sm hover:text-primary transition-colors break-all">info@friendlydental.ca</a>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <Clock className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-semibold text-base text-foreground">{t("contact.hours")}</p>
-                    <p className="text-muted-foreground text-base">{t("contact.hours.mon")}</p>
-                    <p className="text-muted-foreground text-base">{t("contact.hours.tue")}</p>
-                    <p className="text-muted-foreground text-base">{t("contact.hours.wed")}</p>
-                    <p className="text-muted-foreground text-base">{t("contact.hours.thu")}</p>
-                    <p className="text-muted-foreground text-base">{t("contact.hours.fri")}</p>
-                    <p className="text-muted-foreground text-base">{t("contact.hours.sat")}</p>
-                    <p className="text-muted-foreground text-base">{t("contact.hours.sun")}</p>
-                    <p className="text-muted-foreground text-sm mt-1 italic">{t("contact.hours.holiday")}</p>
-                  </div>
+              </div>
+
+              {/* Hours block: clean day/time table */}
+              <div className="border-t border-border pt-5">
+                <div className="flex items-center gap-3 mb-3">
+                  <Clock className="h-5 w-5 text-primary flex-shrink-0" />
+                  <p className="font-semibold text-base text-foreground">{t("contact.hours")}</p>
                 </div>
+                <dl className="grid grid-cols-2 gap-x-6 gap-y-1.5 text-sm">
+                  {[
+                    ["contact.day.mon", "9AM–6PM"],
+                    ["contact.day.tue", "9AM–6PM"],
+                    ["contact.day.wed", "9AM–5PM"],
+                    ["contact.day.thu", "9AM–5PM"],
+                    ["contact.day.fri", "9AM–6PM"],
+                    ["contact.day.sat", "9AM–5PM"],
+                    ["contact.day.sun", t("contact.day.closed")],
+                  ].map(([k, v]) => (
+                    <div key={k} className="flex items-baseline justify-between gap-3 border-b border-dashed border-border/60 pb-1">
+                      <dt className="text-muted-foreground">{t(k)}</dt>
+                      <dd className="text-foreground font-medium tabular-nums">{v}</dd>
+                    </div>
+                  ))}
+                </dl>
+                <p className="text-muted-foreground text-xs mt-3 italic">{t("contact.hours.holiday")}</p>
               </div>
             </div>
           </motion.div>
