@@ -116,9 +116,14 @@ const Footer = () => {
               <li className="flex items-start gap-2">
                 <Clock className="h-3.5 w-3.5 mt-0.5 flex-shrink-0" />
                 <div className="leading-relaxed">
-                  <p>{t("contact.monFri")}</p>
-                  <p>{t("contact.sat")}</p>
-                  <p>{t("contact.sun")}</p>
+                  <p>{t("contact.hours.mon")}</p>
+                  <p>{t("contact.hours.tue")}</p>
+                  <p>{t("contact.hours.wed")}</p>
+                  <p>{t("contact.hours.thu")}</p>
+                  <p>{t("contact.hours.fri")}</p>
+                  <p>{t("contact.hours.sat")}</p>
+                  <p>{t("contact.hours.sun")}</p>
+                  <p className="text-white/60 text-xs mt-1">{t("contact.hours.holiday")}</p>
                 </div>
               </li>
             </ul>
@@ -192,9 +197,14 @@ const Footer = () => {
               <li className="flex items-start gap-2">
                 <Clock className="h-4 w-4 mt-0.5 flex-shrink-0" />
                 <div>
-                  <p>{t("contact.monFri")}</p>
-                  <p>{t("contact.sat")}</p>
-                  <p>{t("contact.sun")}</p>
+                  <p>{t("contact.hours.mon")}</p>
+                  <p>{t("contact.hours.tue")}</p>
+                  <p>{t("contact.hours.wed")}</p>
+                  <p>{t("contact.hours.thu")}</p>
+                  <p>{t("contact.hours.fri")}</p>
+                  <p>{t("contact.hours.sat")}</p>
+                  <p>{t("contact.hours.sun")}</p>
+                  <p className="text-white/60 text-xs mt-1">{t("contact.hours.holiday")}</p>
                 </div>
               </li>
             </ul>

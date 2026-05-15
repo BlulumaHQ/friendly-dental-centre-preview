@@ -177,9 +177,14 @@ const ContactMapSection = () => {
                   <Clock className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="font-semibold text-base text-foreground">{t("contact.hours")}</p>
-                    <p className="text-muted-foreground text-base">{t("contact.monFri")}</p>
-                    <p className="text-muted-foreground text-base">{t("contact.sat")}</p>
-                    <p className="text-muted-foreground text-base">{t("contact.sun")}</p>
+                    <p className="text-muted-foreground text-base">{t("contact.hours.mon")}</p>
+                    <p className="text-muted-foreground text-base">{t("contact.hours.tue")}</p>
+                    <p className="text-muted-foreground text-base">{t("contact.hours.wed")}</p>
+                    <p className="text-muted-foreground text-base">{t("contact.hours.thu")}</p>
+                    <p className="text-muted-foreground text-base">{t("contact.hours.fri")}</p>
+                    <p className="text-muted-foreground text-base">{t("contact.hours.sat")}</p>
+                    <p className="text-muted-foreground text-base">{t("contact.hours.sun")}</p>
+                    <p className="text-muted-foreground text-sm mt-1 italic">{t("contact.hours.holiday")}</p>
                   </div>
                 </div>
               </div>
