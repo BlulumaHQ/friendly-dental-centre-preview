@@ -11,11 +11,11 @@ import {
 import faqImage from "@/assets/faq-clinic.jpg";
 
 const faqKeys = [
-  { q: "faq.q5", a: "faq.a5" }, // Can I book an appointment online?
-  { q: "faq.q2", a: "faq.a2" }, // Do you accept insurance?
-  { q: "faq.q4", a: "faq.a4" }, // Will CDCP cover everything?
-  { q: "faq.q1", a: "faq.a1" }, // Is parking available?
-  { q: "faq.q3", a: "faq.a3" }, // Do you accept dental emergencies?
+  { q: "faq.q1", a: "faq.a1" }, // Accepting new patients
+  { q: "faq.q2", a: "faq.a2" }, // CDCP
+  { q: "faq.q3", a: "faq.a3" }, // Direct billing
+  { q: "faq.q4", a: "faq.a4" }, // Parking
+  { q: "faq.q5", a: "faq.a5" }, // How to book
 ];
 
 const FAQSection = () => {
