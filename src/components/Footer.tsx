@@ -126,10 +126,10 @@ const Footer = () => {
                       ["contact.day.sat", "9AM–5PM"],
                       ["contact.day.sun", t("contact.day.closed")],
                     ].map(([k, v]) => (
-                      <>
+                      <div key={k} className="contents">
                         <dt className="text-white/70">{t(k)}</dt>
                         <dd className="text-white/90 tabular-nums">{v}</dd>
-                      </>
+                      </div>
                     ))}
                   </dl>
                   <p className="text-white/60 text-[11px] mt-1.5">{t("contact.hours.holiday")}</p>
