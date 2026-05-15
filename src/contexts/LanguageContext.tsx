@@ -102,9 +102,14 @@ const translations: Record<string, Record<Lang, string>> = {
   "contact.submit": { en: "Request a Call Back", zh: "預約回電" },
   "contact.address": { en: "120 - 5508 Hollybridge Way, Richmond", zh: "120 - 5508 Hollybridge Way, Richmond" },
   "contact.hours": { en: "Office Hours", zh: "營業時間" },
-  "contact.monFri": { en: "Mon – Fri: 9:00am – 6:00pm", zh: "週一至週五：9:00am – 6:00pm" },
-  "contact.sat": { en: "Saturday: 9:00am – 5:00pm", zh: "週六：9:00am – 5:00pm" },
-  "contact.sun": { en: "Sunday: Closed", zh: "週日：休息" },
+  "contact.hours.mon": { en: "Mon: 9AM–6PM", zh: "週一：9AM–6PM" },
+  "contact.hours.tue": { en: "Tue: 9AM–6PM", zh: "週二：9AM–6PM" },
+  "contact.hours.wed": { en: "Wed: 9AM–5PM", zh: "週三：9AM–5PM" },
+  "contact.hours.thu": { en: "Thu: 9AM–5PM", zh: "週四：9AM–5PM" },
+  "contact.hours.fri": { en: "Fri: 9AM–6PM", zh: "週五：9AM–6PM" },
+  "contact.hours.sat": { en: "Sat: 9AM–5PM", zh: "週六：9AM–5PM" },
+  "contact.hours.sun": { en: "Sun: Closed", zh: "週日：休息" },
+  "contact.hours.holiday": { en: "Holiday hours may vary.", zh: "假期營業時間可能有所不同。" },
   
   // FAQ
   "faq.title": { en: "Frequently Asked Questions", zh: "常見問題" },
