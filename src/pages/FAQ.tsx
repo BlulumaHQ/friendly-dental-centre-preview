@@ -114,8 +114,8 @@ const getSections = (lang: "en" | "zh"): Section[] => {
         {
           q: isZh ? "你們的營業時間？" : "What are your office hours?",
           a: isZh
-            ? "星期一：上午 9:00 – 下午 6:00\n星期二：上午 9:00 – 下午 6:00\n星期三：上午 9:00 – 下午 5:00\n星期四：上午 9:00 – 下午 5:00\n星期五：上午 9:00 – 下午 6:00\n星期六：上午 9:00 – 下午 5:00\n\n午餐時間：\n下午 1:00 – 下午 2:00\n\n所有公眾假期休息。"
-            : "Monday: 9:00 AM – 6:00 PM\nTuesday: 9:00 AM – 6:00 PM\nWednesday: 9:00 AM – 5:00 PM\nThursday: 9:00 AM – 5:00 PM\nFriday: 9:00 AM – 6:00 PM\nSaturday: 9:00 AM – 5:00 PM\n\nLunch Time:\n1:00 PM – 2:00 PM\n\nClosed on all statutory holidays.",
+            ? "週一：9AM–6PM\n週二：9AM–6PM\n週三：9AM–5PM\n週四：9AM–5PM\n週五：9AM–6PM\n週六：9AM–5PM\n週日：休息\n\n假期營業時間可能有所不同。"
+            : "Mon: 9AM–6PM\nTue: 9AM–6PM\nWed: 9AM–5PM\nThu: 9AM–5PM\nFri: 9AM–6PM\nSat: 9AM–5PM\nSun: Closed\n\nHoliday hours may vary.",
         },
       ],
     },
