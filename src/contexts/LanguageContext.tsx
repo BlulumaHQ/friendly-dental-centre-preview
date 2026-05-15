@@ -110,6 +110,14 @@ const translations: Record<string, Record<Lang, string>> = {
   "contact.hours.sat": { en: "Sat: 9AM–5PM", zh: "週六：9AM–5PM" },
   "contact.hours.sun": { en: "Sun: Closed", zh: "週日：休息" },
   "contact.hours.holiday": { en: "Holiday hours may vary.", zh: "假期營業時間可能有所不同。" },
+  "contact.day.mon": { en: "Mon", zh: "週一" },
+  "contact.day.tue": { en: "Tue", zh: "週二" },
+  "contact.day.wed": { en: "Wed", zh: "週三" },
+  "contact.day.thu": { en: "Thu", zh: "週四" },
+  "contact.day.fri": { en: "Fri", zh: "週五" },
+  "contact.day.sat": { en: "Sat", zh: "週六" },
+  "contact.day.sun": { en: "Sun", zh: "週日" },
+  "contact.day.closed": { en: "Closed", zh: "休息" },
   
   // FAQ
   "faq.title": { en: "Frequently Asked Questions", zh: "常見問題" },
