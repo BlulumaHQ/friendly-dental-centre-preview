@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -11,224 +12,163 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-type QA = { q: string; a: React.ReactNode };
+type QA = { q: string; a: string };
 type Section = { title: string; items: QA[] };
 
 const getSections = (lang: "en" | "zh"): Section[] => {
   const isZh = lang === "zh";
   return [
     {
-      title: isZh ? "預約相關" : "Booking & Appointments",
-      items: [
-        {
-          q: isZh ? "如何預約？" : "How do I book an appointment?",
-          a: isZh ? (
-            <>
-              您可以隨時透過我們的{" "}
-              <a
-                href={BOOKING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:underline"
-              >
-                線上預約系統
-              </a>
-              預約。我們的團隊會跟進確認您的預約、保險及其他細節。
-            </>
-          ) : (
-            <>
-              You can book online anytime through our{" "}
-              <a
-                href={BOOKING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:underline"
-              >
-                online booking system
-              </a>
-              . Our team will follow up to confirm your appointment, insurance, and any additional details.
-            </>
-          ),
-        },
-        {
-          q: isZh ? "你們接受牙科急診嗎？" : "Do you accept dental emergencies?",
-          a: isZh
-            ? "接受。請線上預約或致電診所，我們的團隊會盡快跟進，安排您的急診門診。"
-            : "Yes. Please book online or call the clinic and our team will follow up as soon as possible to accommodate your emergency visit.",
-        },
-      ],
-    },
-    {
-      title: isZh ? "保險與付款" : "Insurance & Payment",
-      items: [
-        {
-          q: isZh ? "你們接受保險並提供直接申報嗎？" : "Do you accept insurance and offer direct billing?",
-          a: isZh
-            ? "是的，我們可代您直接向大多數保險公司申報。保險未涵蓋的餘額需由患者自行支付。"
-            : "Yes, we direct bill most insurance providers on your behalf. Patients are responsible for any remaining balance not covered by their plan.",
-        },
-        {
-          q: isZh ? "我可以在治療前知道費用嗎？" : "Will I know costs before treatment?",
-          a: isZh
-            ? "可以。我們會在進行任何治療前提供清楚的費用估算。"
-            : "Yes. We provide clear estimates before proceeding with any treatment.",
-        },
-      ],
-    },
-    {
-      title: isZh ? "CDCP 與政府計劃" : "CDCP & Government Programs",
-      items: [
-        {
-          q: isZh ? "什麼是 CDCP？是否涵蓋所有費用？" : "What is CDCP and will it cover everything?",
-          a: isZh
-            ? "CDCP 是聯邦牙科計劃。承保範圍並不一定為 100%，根據您的計劃及省份收費標準，可能需要支付共付額。部分治療需事先批核。"
-            : "CDCP is a federal dental program. Coverage is not always 100% — a co-pay may apply depending on your plan and the provincial fee guide. Some treatments require pre-approval.",
-        },
-        {
-          q: isZh ? "CDCP 多久涵蓋一次洗牙與檢查？" : "How often does CDCP cover cleanings and check-ups?",
-          a: isZh
-            ? "通常每 12 個滾動月一次，除非臨床上需要額外治療並獲批准。"
-            : "Generally once every 12 rolling months, unless additional treatment is clinically necessary and approved.",
-        },
-        {
-          q: isZh ? "CDCP 需要每年續期嗎？" : "Do I need to renew CDCP every year?",
-          a: isZh
-            ? "需要。每年都必須續期，通常在報稅後收到評稅通知書（Notice of Assessment）後的 4 月左右。可透過加拿大政府網站線上續期。"
-            : "Yes. Annual renewal is required, typically around April after filing your taxes and receiving your Notice of Assessment. Renew online via the Government of Canada website.",
-        },
-        {
-          q: isZh ? "兒童還有其他資助計劃嗎？" : "Are there other programs for children?",
-          a: isZh
-            ? "有，例如 Healthy Kids（MSSH）等計劃可能適用，視乎資格有時可與 CDCP 合併使用。仍可能需要自付部分費用。"
-            : "Yes, programs such as Healthy Kids (MSSH) may apply and can sometimes be combined with CDCP, depending on eligibility. Out-of-pocket costs may still apply.",
-        },
-      ],
-    },
-    {
-      title: isZh ? "預約政策" : "Appointment Policies",
-      items: [
-        {
-          q: isZh ? "你們的取消與爽約政策為何？" : "What is your cancellation and no-show policy?",
-          a: isZh
-            ? "請至少於預約前 48 小時通知取消或改期。爽約或臨時取消將收取 $75 爽約費。"
-            : "We kindly ask for at least 48 hours' notice to cancel or reschedule. Missed appointments or late cancellations are subject to a $75 no-show fee.",
-        },
-      ],
-    },
-    {
-      title: isZh ? "看診準備與流程" : "Visit Preparation & Experience",
-      items: [
-        {
-          q: isZh ? "預約大概需要多長時間？" : "How long will my appointment take?",
-          a: isZh
-            ? "洗牙與檢查通常需 45–60 分鐘。治療類預約時間視項目而定，我們會事先告知您。"
-            : "Cleanings and check-ups typically take 45–60 minutes. Treatment appointments vary depending on the procedure — our team will let you know in advance.",
-        },
-        {
-          q: isZh ? "檢查時會做些什麼？" : "What happens during a check-up?",
-          a: isZh
-            ? "牙醫會進行全面口腔檢查、查看 X 光片、篩檢蛀牙與牙周病，並在需要時討論建議的治療方案。"
-            : "The dentist performs a thorough oral exam, reviews any X-rays, screens for cavities and gum disease, and discusses recommended treatment if needed.",
-        },
-        {
-          q: isZh ? "我會收到預約提醒嗎？" : "Will I receive an appointment reminder?",
-          a: isZh
-            ? "會的，您會在看診前透過電郵或簡訊收到確認與提醒。"
-            : "Yes, you will receive a confirmation and reminder before your visit by email or text.",
-        },
-        {
-          q: isZh ? "需要填寫表格或更新病歷嗎？" : "Do I need to fill out forms or update my medical history?",
-          a: isZh
-            ? "新患者需填寫病歷表。現有患者請於每次看診時告知我們任何用藥、健康狀況或保險上的變動。"
-            : "New patients will be asked to complete a medical history form. Existing patients should let us know about any changes to medications, health conditions, or insurance at each visit.",
-        },
-      ],
-    },
-    {
-      title: isZh ? "停車與診所資訊" : "Parking & Clinic Info",
-      items: [
-        {
-          q: isZh ? "你們位於哪裡？" : "Where are you located?",
-          a: (
-            <a
-              href="https://maps.app.goo.gl/siy6NG1vN6Ckz9R9"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary hover:underline"
-            >
-              5508 Hollybridge Way, Unit 120, Richmond, BC V7C 0E2
-            </a>
-          ),
-        },
-        {
-          q: isZh ? "有提供停車嗎？" : "Is parking available?",
-          a: (
-            <ul className="space-y-1 list-disc pl-5">
-              <li>{isZh ? "Richmond Curling Centre 付費停車。" : "Pay parking at the Richmond Curling Centre."}</li>
-              <li>{isZh ? "附近有街邊付費停車。" : "Street pay parking nearby."}</li>
-              <li>{isZh ? "大樓內 Indigo 地下付費停車場。" : "Underground pay parking (Indigo) in the building."}</li>
-            </ul>
-          ),
-        },
-        {
-          q: isZh ? "你們的營業時間？" : "What are your hours?",
-          a: (
-            <ul className="space-y-1">
-              <li>{isZh ? "星期一、二：上午 9:00 – 下午 6:00" : "Monday, Tuesday: 9:00 AM – 6:00 PM"}</li>
-              <li>{isZh ? "星期三、四：上午 9:00 – 下午 5:00" : "Wednesday, Thursday: 9:00 AM – 5:00 PM"}</li>
-              <li>{isZh ? "星期五：上午 9:00 – 下午 6:00" : "Friday: 9:00 AM – 6:00 PM"}</li>
-              <li>{isZh ? "星期六：上午 9:00 – 下午 5:00" : "Saturday: 9:00 AM – 5:00 PM"}</li>
-              <li>{isZh ? "星期日：休息" : "Sunday: Closed"}</li>
-            </ul>
-          ),
-        },
-        {
-          q: isZh ? "如何聯絡診所？" : "How do I contact the clinic?",
-          a: (
-            <a href="tel:6042738315" className="text-primary hover:underline">
-              (604) 273-8315
-            </a>
-          ),
-        },
-      ],
-    },
-    {
-      title: isZh ? "術後護理" : "Aftercare",
-      items: [
-        {
-          q: isZh ? "洗牙後該注意什麼？" : "What should I do after a dental cleaning?",
-          a: isZh
-            ? "若有塗氟，請至少 30 分鐘內不要進食。請繼續正常刷牙與使用牙線。"
-            : "Avoid eating for at least 30 minutes if fluoride was applied. Continue regular brushing and flossing.",
-        },
-        {
-          q: isZh ? "補牙後該注意什麼？" : "What should I do after a filling?",
-          a: isZh
-            ? "麻醉退去前請避免用治療側咀嚼。輕微敏感屬正常現象。"
-            : "Avoid chewing on the treated side until numbness wears off. Mild sensitivity is normal.",
-        },
-        {
-          q: isZh ? "拔牙後該注意什麼？" : "What should I do after a tooth extraction?",
-          a: isZh
-            ? "24 小時內請避免漱口、吸煙或使用吸管。請仔細遵循所有術後指示。"
-            : "Avoid rinsing, smoking, or using a straw for 24 hours. Follow all post-op instructions carefully.",
-        },
-        {
-          q: isZh ? "治療後何時應聯絡診所？" : "When should I contact the clinic after treatment?",
-          a: isZh
-            ? "若出現劇烈疼痛、腫脹或持續出血，請立即聯絡診所。"
-            : "If you experience severe pain, swelling, or prolonged bleeding, contact the clinic immediately.",
-        },
-      ],
-    },
-    {
-      title: isZh ? "新患者" : "New Patients",
+      title: isZh ? "預約相關" : "Appointments",
       items: [
         {
           q: isZh ? "你們接受新患者嗎？" : "Are you accepting new patients?",
+          a: isZh ? "歡迎！我們接受各年齡層的新患者。" : "Yes! We welcome new patients of all ages.",
+        },
+        {
+          q: isZh ? "如何預約？" : "How can I book an appointment?",
           a: isZh
-            ? "歡迎新患者。不過診所目前正服務眾多現有患者，可預約名額可能有限。"
-            : "Yes, we welcome new patients. However, the clinic is currently serving many existing patients, so availability may vary.",
+            ? "洗牙預約目前可透過本網站線上預約。\n\n其他類型的預約請提交線上預約申請或直接致電診所。"
+            : "Hygiene appointments are currently available through online booking on our website.\n\nFor all other appointment types, please submit an online appointment request or call our office directly.",
+        },
+        {
+          q: isZh ? "可以預約急診嗎？" : "Can I request an emergency appointment?",
+          a: isZh
+            ? "可以。急診預約可線上申請或直接致電診所。我們會盡力盡快安排。"
+            : "Yes. Emergency appointments can be requested online or by calling our office directly. We will do our best to accommodate you as soon as possible.",
+        },
+        {
+          q: isZh ? "你們接受 walk-in 嗎？" : "Do you accept walk-ins?",
+          a: isZh
+            ? "不接受，由於診所行程繁忙，目前僅接受預約。"
+            : "No, we are currently by appointment only due to our busy schedule.",
+        },
+        {
+          q: isZh ? "如需取消預約怎麼辦？" : "What happens if I need to cancel my appointment?",
+          a: isZh
+            ? "請至少於預約前 2 個工作天通知我們取消或改期。"
+            : "We kindly request at least 2 business days' notice for appointment cancellations or changes.",
+        },
+      ],
+    },
+    {
+      title: isZh ? "保險與 CDCP" : "Insurance & CDCP",
+      items: [
+        {
+          q: isZh ? "你們接受 CDCP（加拿大牙科保健計劃）嗎？" : "Do you accept CDCP (Canadian Dental Care Plan)?",
+          a: isZh ? "是的，我們接受 CDCP 患者。" : "Yes, we accept CDCP patients.",
+        },
+        {
+          q: isZh ? "使用 CDCP 是否需要自付任何費用？" : "Will I have to pay anything with CDCP?",
+          a: isZh
+            ? "視乎您的承保等級與治療項目，可能需要支付共付額或差額。"
+            : "Depending on your coverage level and treatment, a co-payment or fee difference may apply.",
+        },
+        {
+          q: isZh ? "CDCP 多久涵蓋一次洗牙？" : "How often does CDCP cover dental cleanings?",
+          a: isZh
+            ? "CDCP 通常每 12 個滾動月涵蓋一次洗牙。涵蓋頻率可能因個人資格與治療紀錄而異。"
+            : "CDCP typically allows dental cleanings once every rolling 12 months. Coverage frequency may vary depending on individual eligibility and treatment history.",
+        },
+        {
+          q: isZh ? "你們提供保險直接申報嗎？" : "Do you direct bill insurance?",
+          a: isZh ? "是的，我們可向多家保險公司直接申報。" : "Yes, we offer direct billing to many insurance providers.",
+        },
+        {
+          q: isZh ? "你們接受哪些保險計劃？" : "What insurance plans do you accept?",
+          a: isZh
+            ? "我們接受大多數主要的牙科保險計劃。請聯絡診所以確認您的承保詳情。"
+            : "We accept most major dental insurance plans. Please contact our office to confirm your specific coverage.",
+        },
+      ],
+    },
+    {
+      title: isZh ? "付款方式" : "Payment",
+      items: [
+        {
+          q: isZh ? "你們接受哪些付款方式？" : "What payment methods do you accept?",
+          a: isZh
+            ? "我們接受：\n\n• Debit\n• Visa\n• Mastercard\n• 現金\n• 微信支付 (WeChat Pay)\n• 支付寶 (Alipay)\n\n我們不接受 American Express (Amex)。"
+            : "We accept:\n\n• Debit\n• Visa\n• Mastercard\n• Cash\n• WeChat Pay\n• Alipay\n\nWe do not accept American Express (Amex).",
+        },
+      ],
+    },
+    {
+      title: isZh ? "停車與位置" : "Parking & Location",
+      items: [
+        {
+          q: isZh ? "你們的位置在哪裡？" : "Where are you located?",
+          a: "5508 Hollybridge Way, Unit 120, Richmond, BC V7C 0E2",
+        },
+        {
+          q: isZh ? "有提供停車嗎？" : "Is parking available?",
+          a: isZh
+            ? "附近設有 Indigo 地下付費停車場。\n\n視乎情況，Richmond Curling Centre 及附近街邊亦可能有停車位。"
+            : "Paid underground Indigo parking is available nearby.\n\nAdditional parking may also be available at Richmond Curling Centre and nearby street parking depending on availability.",
+        },
+      ],
+    },
+    {
+      title: isZh ? "營業時間" : "Office Hours",
+      items: [
+        {
+          q: isZh ? "你們的營業時間？" : "What are your office hours?",
+          a: isZh
+            ? "星期一：上午 9:00 – 下午 6:00\n星期二：上午 9:00 – 下午 6:00\n星期三：上午 9:00 – 下午 5:00\n星期四：上午 9:00 – 下午 5:00\n星期五：上午 9:00 – 下午 6:00\n星期六：上午 9:00 – 下午 5:00\n\n午餐時間：\n下午 1:00 – 下午 2:00\n\n所有公眾假期休息。"
+            : "Monday: 9:00 AM – 6:00 PM\nTuesday: 9:00 AM – 6:00 PM\nWednesday: 9:00 AM – 5:00 PM\nThursday: 9:00 AM – 5:00 PM\nFriday: 9:00 AM – 6:00 PM\nSaturday: 9:00 AM – 5:00 PM\n\nLunch Time:\n1:00 PM – 2:00 PM\n\nClosed on all statutory holidays.",
+        },
+      ],
+    },
+    {
+      title: isZh ? "語言與表格" : "Languages & Forms",
+      items: [
+        {
+          q: isZh ? "你們提供哪些語言服務？" : "What languages do you offer?",
+          a: isZh
+            ? "我們提供以下語言服務：\n\n• English\n• Mandarin（普通話）\n• Cantonese（廣東話）"
+            : "We provide services in:\n\n• English\n• Mandarin\n• Cantonese",
+        },
+        {
+          q: isZh ? "你們的表格有中文版嗎？" : "Are your forms available in Chinese?",
+          a: isZh ? "有的，我們的數位表格提供英文及中文版本。" : "Yes, our digital forms are available in both English and Chinese.",
+        },
+        {
+          q: isZh ? "預約前需要先填寫表格嗎？" : "Do I need to fill out forms before my appointment?",
+          a: isZh
+            ? "需要。我們通常會在您預約前透過線上發送數位表格供您填寫。"
+            : "Yes. Digital forms are typically sent before your appointment for completion online.",
+        },
+      ],
+    },
+    {
+      title: isZh ? "家庭牙科" : "Family Dentistry",
+      items: [
+        {
+          q: isZh ? "你們看兒童嗎？" : "Do you treat children?",
+          a: isZh ? "是的，我們歡迎兒童及全家人就診。" : "Yes, we welcome children and families.",
+        },
+        {
+          q: isZh ? "你們提供 Invisalign 或矯正治療嗎？" : "Do you offer Invisalign or orthodontic treatment?",
+          a: isZh
+            ? "請直接聯絡診所，了解更多有關矯正治療的選項與諮詢。"
+            : "Please contact our office directly to learn more about orthodontic treatment options and consultations.",
+        },
+      ],
+    },
+    {
+      title: isZh ? "牙科紀錄與 X 光" : "Dental Records & X-Rays",
+      items: [
+        {
+          q: isZh ? "可以協助我從前一位牙醫處取得病歷嗎？" : "Can you request my previous dental records?",
+          a: isZh
+            ? "可以。在您同意下，我們可協助向您先前的牙科診所索取病歷與 X 光片。"
+            : "Yes, we can help request records and X-rays from your previous dental office with your consent.",
+        },
+        {
+          q: isZh ? "牙科 X 光安全嗎？" : "Are dental X-rays safe?",
+          a: isZh
+            ? "安全。牙科 X 光使用極低劑量輻射，被公認為安全。"
+            : "Yes. Dental X-rays use very low radiation and are considered safe.",
         },
       ],
     },
@@ -240,12 +180,72 @@ const FAQ = () => {
   const isZh = lang === "zh";
   const sections = getSections(lang);
 
+  // SEO: title, meta description, canonical, FAQPage JSON-LD
+  useEffect(() => {
+    const title = isZh
+      ? "Friendly Dental Centre 常見問題 | 列治文牙醫資訊"
+      : "Friendly Dental Centre FAQ | Richmond Dentist Information";
+    const description = isZh
+      ? "Friendly Dental Centre 列治文牙科診所常見問題：預約、保險、CDCP、停車、付款方式與服務項目資訊。"
+      : "Find answers to common questions about appointments, insurance, CDCP coverage, parking, payments, and dental services at Friendly Dental Centre in Richmond, BC.";
+
+    document.title = title;
+
+    const setMeta = (name: string, content: string) => {
+      let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement | null;
+      if (!el) {
+        el = document.createElement("meta");
+        el.setAttribute("name", name);
+        document.head.appendChild(el);
+      }
+      el.setAttribute("content", content);
+    };
+    setMeta("description", description);
+
+    // Canonical
+    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.setAttribute("rel", "canonical");
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute("href", "https://friendly-dental-centre-preview.lovable.app/faq");
+
+    // FAQPage JSON-LD
+    const allItems = sections.flatMap((s) => s.items);
+    const jsonld = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: allItems.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.a,
+        },
+      })),
+    };
+    let script = document.getElementById("faq-jsonld") as HTMLScriptElement | null;
+    if (!script) {
+      script = document.createElement("script");
+      script.type = "application/ld+json";
+      script.id = "faq-jsonld";
+      document.head.appendChild(script);
+    }
+    script.textContent = JSON.stringify(jsonld);
+
+    return () => {
+      const s = document.getElementById("faq-jsonld");
+      if (s) s.remove();
+    };
+  }, [lang, isZh, sections]);
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
       <main className="flex-1">
         {/* Hero */}
-        <section className="bg-primary text-primary-foreground py-16">
+        <section className="bg-primary text-primary-foreground py-14 md:py-16">
           <div className="container mx-auto px-4 text-center">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -255,30 +255,37 @@ const FAQ = () => {
               {isZh ? "Friendly Dental Centre – 常見問題" : "Friendly Dental Centre – FAQ"}
             </motion.h1>
             <p className="text-primary-foreground/80 max-w-2xl mx-auto text-base md:text-lg">
-              {isZh ? "為列治文患者最常詢問的問題提供解答。" : "Answers to the questions our Richmond patients ask most."}
+              {isZh
+                ? "為列治文患者最常詢問的問題提供解答。"
+                : "Answers to the questions our Richmond patients ask most."}
             </p>
           </div>
         </section>
 
         {/* Content */}
-        <section className="py-16 bg-section-light">
-          <div className="container mx-auto px-4 max-w-3xl space-y-10">
+        <section className="py-14 md:py-16 bg-section-light">
+          <div className="container mx-auto px-4 max-w-3xl space-y-8 md:space-y-10">
             {sections.map((section, sIdx) => (
               <div key={section.title}>
                 <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 border-b border-border pb-2">
                   {section.title}
                 </h2>
-                <Accordion type="single" collapsible className="space-y-3">
+                <Accordion
+                  type="single"
+                  collapsible
+                  defaultValue={sIdx === 0 ? `${sIdx}-0` : undefined}
+                  className="space-y-2"
+                >
                   {section.items.map((item, i) => (
                     <AccordionItem
                       key={`${sIdx}-${i}`}
                       value={`${sIdx}-${i}`}
-                      className="border border-border rounded-lg px-5 bg-background"
+                      className="border border-border rounded-lg px-5 bg-background transition-colors hover:border-primary/40"
                     >
-                      <AccordionTrigger className="text-foreground font-semibold text-base text-left hover:no-underline">
+                      <AccordionTrigger className="text-foreground font-semibold text-base text-left hover:no-underline py-4">
                         {item.q}
                       </AccordionTrigger>
-                      <AccordionContent className="text-muted-foreground leading-relaxed text-base">
+                      <AccordionContent className="text-muted-foreground leading-relaxed text-[15px] md:text-base whitespace-pre-line">
                         {item.a}
                       </AccordionContent>
                     </AccordionItem>
@@ -287,7 +294,7 @@ const FAQ = () => {
               </div>
             ))}
 
-            <div className="text-center pt-6">
+            <div className="text-center pt-4">
               <a
                 href={BOOKING_URL}
                 target="_blank"
