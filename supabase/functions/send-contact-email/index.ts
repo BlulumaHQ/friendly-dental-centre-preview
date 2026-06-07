@@ -102,7 +102,7 @@ Deno.serve(async (req) => {
         Authorization: `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: 'Friendly Dental Website <onboarding@resend.dev>',
+        from: 'Friendly Dental Website <info@friendlydental.ca>',
         to: ['info@friendlydental.ca'],
         cc: ['sony@bluluma.com'],
         reply_to: email,
