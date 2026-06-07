@@ -2,26 +2,47 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "@/hooks/use-toast";
 
 const ContactMapSection = () => {
   const { t } = useLanguage();
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
 
+    const payload = {
+      firstName: String(data.get("firstName") ?? ""),
+      lastName: String(data.get("lastName") ?? ""),
+      email: String(data.get("email") ?? ""),
+      phone: String(data.get("phone") ?? ""),
+      service: String(data.get("service") ?? ""),
+      message: String(data.get("message") ?? ""),
+      websiteUrl: typeof window !== "undefined" ? window.location.href : "https://friendlydental.ca",
+    };
+
+    setSubmitting(true);
     try {
-      await fetch("https://formspree.io/f/mbdabbql", {
-        method: "POST",
-        body: data,
-        headers: { Accept: "application/json" },
+      const { data: res, error } = await supabase.functions.invoke("send-contact-email", {
+        body: payload,
       });
+      if (error || !res?.success) {
+        throw new Error(error?.message || res?.error || "Failed to send");
+      }
       setSubmitted(true);
       form.reset();
-    } catch {
-      // silent fail
+    } catch (err) {
+      toast({
+        title: "Unable to send",
+        description: "Please try again or call us at 604-273-8315.",
+        variant: "destructive",
+      });
+    } finally {
+      setSubmitting(false);
     }
   };
 
