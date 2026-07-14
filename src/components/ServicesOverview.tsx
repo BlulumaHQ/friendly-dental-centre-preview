@@ -44,7 +44,8 @@ const ServicesOverview = () => {
               className="h-full"
             >
               <Link
-                to={`/services${s.anchor}`}
+                to={s.to}
+                aria-label={s.ariaKey ? t(s.ariaKey) : undefined}
                 className="flex flex-col items-center justify-center text-center p-6 rounded-xl bg-background hover:shadow-lg transition-all hover:-translate-y-1 group h-full min-h-[220px]"
               >
                 <div className="w-20 h-20 mb-4 shrink-0">
