@@ -7,6 +7,7 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 
 import Index from "./pages/Index.tsx";
 import Services from "./pages/Services.tsx";
+import DentalImplants from "./pages/DentalImplants.tsx";
 import FAQ from "./pages/FAQ.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
