@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, ReactNode } from "react";
+import { implantTranslations } from "@/lib/implantTranslations";
 
 type Lang = "en" | "zh";
 
@@ -8,7 +9,7 @@ interface LanguageContextType {
   t: (key: string) => string;
 }
 
-const translations: Record<string, Record<Lang, string>> = {
+const baseTranslations: Record<string, Record<Lang, string>> = {
   // Nav
   "nav.home": { en: "Home", zh: "首頁" },
   "nav.ourOffice": { en: "Our Office", zh: "我們的診所" },
