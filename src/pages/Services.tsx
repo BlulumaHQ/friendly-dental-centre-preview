@@ -1,6 +1,7 @@
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import StickyBookNow from "@/components/StickyBookNow";
@@ -90,6 +91,15 @@ const Services = () => {
                 >
                   <h2 className="text-3xl font-bold text-foreground mb-4">{t(`service.${s.key}`)}</h2>
                   <p className="text-muted-foreground leading-relaxed text-lg">{t(`service.${s.key}.desc`)}</p>
+                  {s.key === "implants" && (
+                    <Link
+                      to="/services/dental-implants"
+                      className="inline-flex items-center gap-2 mt-6 text-primary font-semibold text-base hover:underline"
+                    >
+                      {t("impl.cta.learnMore")}
+                      <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  )}
                 </motion.div>
               </div>
             </div>

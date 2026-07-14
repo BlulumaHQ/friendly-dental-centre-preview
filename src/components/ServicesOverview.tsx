@@ -9,12 +9,12 @@ import iconRestoratives from "@/assets/icon-restoratives.svg";
 import iconEsthetics from "@/assets/icon-esthetics.svg";
 
 const services = [
-  { key: "implants", icon: iconImplants, anchor: "#implants" },
-  { key: "orthodontics", icon: iconOrthodontics, anchor: "#orthodontics" },
-  { key: "pediatric", icon: iconPediatric, anchor: "#pediatric" },
-  { key: "maintenance", icon: iconMaintenance, anchor: "#maintenance" },
-  { key: "restoratives", icon: iconRestoratives, anchor: "#restoratives" },
-  { key: "esthetics", icon: iconEsthetics, anchor: "#esthetics" },
+  { key: "implants", icon: iconImplants, to: "/services/dental-implants", ariaKey: "impl.aria.homeIcon" },
+  { key: "orthodontics", icon: iconOrthodontics, to: "/services#orthodontics" },
+  { key: "pediatric", icon: iconPediatric, to: "/services#pediatric" },
+  { key: "maintenance", icon: iconMaintenance, to: "/services#maintenance" },
+  { key: "restoratives", icon: iconRestoratives, to: "/services#restoratives" },
+  { key: "esthetics", icon: iconEsthetics, to: "/services#esthetics" },
 ];
 
 const ServicesOverview = () => {
@@ -44,7 +44,8 @@ const ServicesOverview = () => {
               className="h-full"
             >
               <Link
-                to={`/services${s.anchor}`}
+                to={s.to}
+                aria-label={s.ariaKey ? t(s.ariaKey) : undefined}
                 className="flex flex-col items-center justify-center text-center p-6 rounded-xl bg-background hover:shadow-lg transition-all hover:-translate-y-1 group h-full min-h-[220px]"
               >
                 <div className="w-20 h-20 mb-4 shrink-0">

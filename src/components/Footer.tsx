@@ -32,12 +32,12 @@ const Footer = () => {
   };
 
   const services = [
-    { name: "service.implants", anchor: "#implants" },
-    { name: "service.orthodontics", anchor: "#orthodontics" },
-    { name: "service.pediatric", anchor: "#pediatric" },
-    { name: "service.maintenance", anchor: "#maintenance" },
-    { name: "service.restoratives", anchor: "#restoratives" },
-    { name: "service.esthetics", anchor: "#esthetics" },
+    { name: "service.implants", to: "/services/dental-implants" },
+    { name: "service.orthodontics", to: "/services#orthodontics" },
+    { name: "service.pediatric", to: "/services#pediatric" },
+    { name: "service.maintenance", to: "/services#maintenance" },
+    { name: "service.restoratives", to: "/services#restoratives" },
+    { name: "service.esthetics", to: "/services#esthetics" },
   ];
 
   const navItems = [
@@ -81,8 +81,8 @@ const Footer = () => {
             <h4 className="font-semibold text-white mb-2 text-sm">{t("nav.services")}</h4>
             <ul className="space-y-1.5 text-white/80">
               {services.map((s) => (
-                <li key={s.anchor}>
-                  <Link to={`/services${s.anchor}`} className="hover:text-secondary transition-colors">
+                <li key={s.to}>
+                  <Link to={s.to} className="hover:text-secondary transition-colors">
                     {t(s.name)}
                   </Link>
                 </li>
@@ -176,8 +176,8 @@ const Footer = () => {
             <h4 className="font-semibold text-lg mb-4">{t("nav.services")}</h4>
             <ul className="space-y-2 text-base text-white/80">
               {services.map((s) => (
-                <li key={s.anchor}>
-                  <Link to={`/services${s.anchor}`} className="hover:text-secondary transition-colors">
+                <li key={s.to}>
+                  <Link to={s.to} className="hover:text-secondary transition-colors">
                     {t(s.name)}
                   </Link>
                 </li>
