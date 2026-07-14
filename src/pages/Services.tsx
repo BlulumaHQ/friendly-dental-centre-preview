@@ -91,6 +91,15 @@ const Services = () => {
                 >
                   <h2 className="text-3xl font-bold text-foreground mb-4">{t(`service.${s.key}`)}</h2>
                   <p className="text-muted-foreground leading-relaxed text-lg">{t(`service.${s.key}.desc`)}</p>
+                  {s.key === "implants" && (
+                    <Link
+                      to="/services/dental-implants"
+                      className="inline-flex items-center gap-2 mt-6 text-primary font-semibold text-base hover:underline"
+                    >
+                      {t("impl.cta.learnMore")}
+                      <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  )}
                 </motion.div>
               </div>
             </div>
