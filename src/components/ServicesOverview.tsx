@@ -9,12 +9,12 @@ import iconRestoratives from "@/assets/icon-restoratives.svg";
 import iconEsthetics from "@/assets/icon-esthetics.svg";
 
 const services = [
-  { key: "implants", icon: iconImplants, anchor: "#implants" },
-  { key: "orthodontics", icon: iconOrthodontics, anchor: "#orthodontics" },
-  { key: "pediatric", icon: iconPediatric, anchor: "#pediatric" },
-  { key: "maintenance", icon: iconMaintenance, anchor: "#maintenance" },
-  { key: "restoratives", icon: iconRestoratives, anchor: "#restoratives" },
-  { key: "esthetics", icon: iconEsthetics, anchor: "#esthetics" },
+  { key: "implants", icon: iconImplants, to: "/services/dental-implants", ariaKey: "impl.aria.homeIcon" },
+  { key: "orthodontics", icon: iconOrthodontics, to: "/services#orthodontics" },
+  { key: "pediatric", icon: iconPediatric, to: "/services#pediatric" },
+  { key: "maintenance", icon: iconMaintenance, to: "/services#maintenance" },
+  { key: "restoratives", icon: iconRestoratives, to: "/services#restoratives" },
+  { key: "esthetics", icon: iconEsthetics, to: "/services#esthetics" },
 ];
 
 const ServicesOverview = () => {
