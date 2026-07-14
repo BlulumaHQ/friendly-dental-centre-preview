@@ -32,12 +32,12 @@ const Footer = () => {
   };
 
   const services = [
-    { name: "service.implants", anchor: "#implants" },
-    { name: "service.orthodontics", anchor: "#orthodontics" },
-    { name: "service.pediatric", anchor: "#pediatric" },
-    { name: "service.maintenance", anchor: "#maintenance" },
-    { name: "service.restoratives", anchor: "#restoratives" },
-    { name: "service.esthetics", anchor: "#esthetics" },
+    { name: "service.implants", to: "/services/dental-implants" },
+    { name: "service.orthodontics", to: "/services#orthodontics" },
+    { name: "service.pediatric", to: "/services#pediatric" },
+    { name: "service.maintenance", to: "/services#maintenance" },
+    { name: "service.restoratives", to: "/services#restoratives" },
+    { name: "service.esthetics", to: "/services#esthetics" },
   ];
 
   const navItems = [
