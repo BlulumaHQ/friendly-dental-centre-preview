@@ -374,23 +374,12 @@ const DentalImplants = () => {
                 <p>{t("impl.drwu.p2")}</p>
                 <p>{t("impl.drwu.p3")}</p>
                 <p>{t("impl.drwu.p4")}</p>
+                <p>{t("impl.drwu.p5")}</p>
               </div>
 
-              <div className="mt-8">
-                <h3 className="text-sm font-semibold uppercase tracking-wider text-primary mb-4">
-                  {t("impl.drwu.principles")}
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {principles.map((p) => (
-                    <span
-                      key={p}
-                      className="px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium"
-                    >
-                      {t(p)}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              <p className="mt-6 text-xs md:text-sm text-muted-foreground italic border-l-2 border-primary/40 pl-3 leading-relaxed">
+                {t("impl.drwu.credentialNote")}
+              </p>
             </motion.div>
           </div>
         </section>
