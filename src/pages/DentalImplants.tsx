@@ -55,11 +55,27 @@ const options = [
   { title: "impl.opt.3.title", body: "impl.opt.3.body" },
 ];
 
-const principles = ["impl.drwu.pr.1", "impl.drwu.pr.2", "impl.drwu.pr.3", "impl.drwu.pr.4", "impl.drwu.pr.5"];
+const principles = [
+  { label: "impl.drwu.pr.1", desc: "impl.drwu.pr.1.desc" },
+  { label: "impl.drwu.pr.2", desc: "impl.drwu.pr.2.desc" },
+  { label: "impl.drwu.pr.3", desc: "impl.drwu.pr.3.desc" },
+  { label: "impl.drwu.pr.4", desc: "impl.drwu.pr.4.desc" },
+  { label: "impl.drwu.pr.5", desc: "impl.drwu.pr.5.desc" },
+];
 
 const digital = ["impl.dig.1", "impl.dig.2", "impl.dig.3", "impl.dig.4", "impl.dig.5"];
 
-const miBenefits = ["impl.mi.b1", "impl.mi.b2", "impl.mi.b3", "impl.mi.b4", "impl.mi.b5"];
+const miBenefits = ["impl.mi.b1", "impl.mi.b2", "impl.mi.b3", "impl.mi.b4", "impl.mi.b5", "impl.mi.b6"];
+
+const materialFactors = [
+  "impl.mat.i1",
+  "impl.mat.i2",
+  "impl.mat.i3",
+  "impl.mat.i4",
+  "impl.mat.i5",
+  "impl.mat.i6",
+  "impl.mat.i7",
+];
 
 const steps = [
   "impl.proc.1",
