@@ -442,6 +442,59 @@ const DentalImplants = () => {
           </div>
         </section>
 
+        {/* Implant systems and materials */}
+        <section className="py-14 md:py-20 bg-section-light">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-8 leading-tight">
+              {t("impl.mat.title")}
+            </h2>
+            <div className="space-y-4 text-muted-foreground leading-relaxed text-base md:text-[17px]">
+              <p>{t("impl.mat.p1")}</p>
+              <p className="font-medium text-foreground">{t("impl.mat.listTitle")}</p>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 not-italic">
+                {materialFactors.map((k) => (
+                  <li key={k} className="flex items-start gap-2">
+                    <CheckCircle2 className="h-5 w-5 text-secondary flex-shrink-0 mt-0.5" aria-hidden="true" />
+                    <span className="text-foreground/90">{t(k)}</span>
+                  </li>
+                ))}
+              </ul>
+              <p>{t("impl.mat.p2")}</p>
+              <p>{t("impl.mat.p3")}</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Five principles */}
+        <section className="py-14 md:py-20">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-4 leading-tight">
+              {t("impl.drwu.principles")}
+            </h2>
+            <p className="max-w-3xl mx-auto text-muted-foreground text-center leading-relaxed mb-10 text-base md:text-[17px]">
+              {t("impl.drwu.principlesIntro")}
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+              {principles.map((p, i) => (
+                <motion.div
+                  key={p.label}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.05 }}
+                  className="bg-section-light rounded-2xl border border-border/60 p-5 md:p-6"
+                >
+                  <div className="mb-3 w-9 h-9 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm">
+                    {i + 1}
+                  </div>
+                  <h3 className="text-lg font-bold text-foreground mb-2">{t(p.label)}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{t(p.desc)}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Process timeline */}
         <section className="py-14 md:py-20 bg-section-light">
           <div className="container mx-auto px-4">
