@@ -55,11 +55,27 @@ const options = [
   { title: "impl.opt.3.title", body: "impl.opt.3.body" },
 ];
 
-const principles = ["impl.drwu.pr.1", "impl.drwu.pr.2", "impl.drwu.pr.3", "impl.drwu.pr.4", "impl.drwu.pr.5"];
+const principles = [
+  { label: "impl.drwu.pr.1", desc: "impl.drwu.pr.1.desc" },
+  { label: "impl.drwu.pr.2", desc: "impl.drwu.pr.2.desc" },
+  { label: "impl.drwu.pr.3", desc: "impl.drwu.pr.3.desc" },
+  { label: "impl.drwu.pr.4", desc: "impl.drwu.pr.4.desc" },
+  { label: "impl.drwu.pr.5", desc: "impl.drwu.pr.5.desc" },
+];
 
 const digital = ["impl.dig.1", "impl.dig.2", "impl.dig.3", "impl.dig.4", "impl.dig.5"];
 
-const miBenefits = ["impl.mi.b1", "impl.mi.b2", "impl.mi.b3", "impl.mi.b4", "impl.mi.b5"];
+const miBenefits = ["impl.mi.b1", "impl.mi.b2", "impl.mi.b3", "impl.mi.b4", "impl.mi.b5", "impl.mi.b6"];
+
+const materialFactors = [
+  "impl.mat.i1",
+  "impl.mat.i2",
+  "impl.mat.i3",
+  "impl.mat.i4",
+  "impl.mat.i5",
+  "impl.mat.i6",
+  "impl.mat.i7",
+];
 
 const steps = [
   "impl.proc.1",
@@ -358,23 +374,12 @@ const DentalImplants = () => {
                 <p>{t("impl.drwu.p2")}</p>
                 <p>{t("impl.drwu.p3")}</p>
                 <p>{t("impl.drwu.p4")}</p>
+                <p>{t("impl.drwu.p5")}</p>
               </div>
 
-              <div className="mt-8">
-                <h3 className="text-sm font-semibold uppercase tracking-wider text-primary mb-4">
-                  {t("impl.drwu.principles")}
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {principles.map((p) => (
-                    <span
-                      key={p}
-                      className="px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium"
-                    >
-                      {t(p)}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              <p className="mt-6 text-xs md:text-sm text-muted-foreground italic border-l-2 border-primary/40 pl-3 leading-relaxed">
+                {t("impl.drwu.credentialNote")}
+              </p>
             </motion.div>
           </div>
         </section>
@@ -433,6 +438,59 @@ const DentalImplants = () => {
                   </li>
                 ))}
               </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* Implant systems and materials */}
+        <section className="py-14 md:py-20 bg-section-light">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-8 leading-tight">
+              {t("impl.mat.title")}
+            </h2>
+            <div className="space-y-4 text-muted-foreground leading-relaxed text-base md:text-[17px]">
+              <p>{t("impl.mat.p1")}</p>
+              <p className="font-medium text-foreground">{t("impl.mat.listTitle")}</p>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 not-italic">
+                {materialFactors.map((k) => (
+                  <li key={k} className="flex items-start gap-2">
+                    <CheckCircle2 className="h-5 w-5 text-secondary flex-shrink-0 mt-0.5" aria-hidden="true" />
+                    <span className="text-foreground/90">{t(k)}</span>
+                  </li>
+                ))}
+              </ul>
+              <p>{t("impl.mat.p2")}</p>
+              <p>{t("impl.mat.p3")}</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Five principles */}
+        <section className="py-14 md:py-20">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-4 leading-tight">
+              {t("impl.drwu.principles")}
+            </h2>
+            <p className="max-w-3xl mx-auto text-muted-foreground text-center leading-relaxed mb-10 text-base md:text-[17px]">
+              {t("impl.drwu.principlesIntro")}
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+              {principles.map((p, i) => (
+                <motion.div
+                  key={p.label}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.05 }}
+                  className="bg-section-light rounded-2xl border border-border/60 p-5 md:p-6"
+                >
+                  <div className="mb-3 w-9 h-9 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm">
+                    {i + 1}
+                  </div>
+                  <h3 className="text-lg font-bold text-foreground mb-2">{t(p.label)}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{t(p.desc)}</p>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
