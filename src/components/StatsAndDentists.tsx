@@ -4,6 +4,7 @@ import dentistWu from "@/assets/dentist-wu.jpg";
 import dentistPan from "@/assets/dentist-pan.jpg";
 import dentistLin from "@/assets/dentist-lin.jpg";
 import dentistChen from "@/assets/dentist-chen.jpg";
+import dentistHsu from "@/assets/dentist-hsu.jpg";
 
 
 const dentists = [
@@ -51,6 +52,17 @@ const dentists = [
     ],
     bioKey: "dentist.chen.bio",
   },
+  {
+    name: "Dr. Ivy Hsu",
+    degree: "D.D.S.",
+    image: dentistHsu,
+    credentials: [
+      "Cardinal Herrera University, Spain, 2014",
+      "National Dental Examining Board of Canada, 2018",
+      "Fluent in Mandarin, Spanish, and English",
+    ],
+    bioKey: "dentist.hsu.bio",
+  },
 ];
 
 const StatsAndDentists = () => {
@@ -68,7 +80,7 @@ const StatsAndDentists = () => {
           {t("stats.meetTeam")}
         </motion.h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6 max-w-6xl mx-auto">
           {dentists.map((d, i) => (
             <motion.div
               key={d.name}
@@ -76,7 +88,7 @@ const StatsAndDentists = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="bg-primary-foreground/10 backdrop-blur-sm rounded-xl overflow-hidden hover:bg-primary-foreground/15 transition-colors flex flex-col max-w-[280px] mx-auto sm:max-w-none"
+              className={`bg-primary-foreground/10 backdrop-blur-sm rounded-xl overflow-hidden hover:bg-primary-foreground/15 transition-colors flex flex-col max-w-[280px] mx-auto sm:max-w-none lg:col-span-2 ${i === 3 ? "lg:col-start-2" : ""}`}
             >
               <div className="aspect-square overflow-hidden shrink-0">
                 <img

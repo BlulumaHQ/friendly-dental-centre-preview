@@ -83,6 +83,10 @@ const baseTranslations: Record<string, Record<Lang, string>> = {
     en: "Dr. Jie Chen is an experienced prosthodontist specializing in cosmetic dentistry and complex restorative treatments. Her expertise includes dentures, implant restorations, and full-mouth rehabilitation. Dr. Chen is known for her meticulous work and gentle care, helping patients restore both their smiles and confidence.",
     zh: "Dr. Jie Chen 是一位經驗豐富的修復牙科專家，專精於美容牙科和複雜修復治療。她的專業領域包括假牙、植牙修復和全口重建。Dr. Chen 以其精細的工作和溫和的護理而聞名，幫助患者恢復笑容和自信。"
   },
+  "dentist.hsu.bio": {
+    en: "Dr. Ivy Hsu received her dental degree from Cardinal Herrera University in Valencia, Spain. She later gained valuable clinical experience at Kaohsiung Chang Gung Memorial Hospital, where she developed strong skills in general and family dentistry. Dr. Hsu is detail-oriented and dedicated to providing gentle, comprehensive care for patients of all ages. She is fluent in Mandarin, Spanish, and English.",
+    zh: "Dr. Ivy Hsu 畢業於西班牙 Valencia 的 Cardinal Herrera University 牙醫學系，其後於高雄長庚紀念醫院累積豐富臨床經驗，專精於一般及家庭牙科。Dr. Hsu 細心專注，致力為各年齡層的患者提供溫和且全面的牙科護理。她能流利使用中文、西班牙文及英文。"
+  },
 
   // Google Reviews
   "reviews.average": { en: "4.9 Average Rating", zh: "4.9 平均評分" },
