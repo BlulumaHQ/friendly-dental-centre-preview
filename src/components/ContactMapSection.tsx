@@ -1,8 +1,8 @@
 import { useState } from "react";
+import { sendContact } from "@/lib/send-contact";
 import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
 
 const ContactMapSection = () => {
@@ -27,9 +27,7 @@ const ContactMapSection = () => {
 
     setSubmitting(true);
     try {
-      const { data: res, error } = await supabase.functions.invoke("send-contact-email", {
-        body: payload,
-      });
+      const { data: res, error } = await sendContact(payload);
       if (error || !res?.success) {
         throw new Error(error?.message || res?.error || "Failed to send");
       }
