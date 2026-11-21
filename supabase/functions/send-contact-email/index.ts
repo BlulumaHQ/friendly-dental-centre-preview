@@ -104,7 +104,6 @@ Deno.serve(async (req) => {
       body: JSON.stringify({
         from: 'Friendly Dental Website <info@friendlydental.ca>',
         to: ['info@friendlydental.ca'],
-        cc: ['sony@bluluma.com'],
         reply_to: email,
         subject: 'New Website Inquiry - Friendly Dental',
         html,
